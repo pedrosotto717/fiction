@@ -1,0 +1,31 @@
+/* *************** Custom Properties *************** */
+// Vars SCSS
+$max-width: 1800px;
+$font-size: 16px;
+//$font-main: 'El Messiri', Roboto, 'Lucida Sans';
+$font-main: Exo;
+$font-second: 'Roboto R', 'Lucida Sans';
+$font-aux: 'Roboto Th', 'Lucida Sans ligth';
+$color-main: #000;
+$transition-global: 0.3s ease 0s;
+$enf-color: #00ECB7;
+$enf-color-overlay: darken($enf-color, 10%);
+$color-secondary: #161A1F;
+$icon-w: 20px;
+$icon-h: 20px;
+
+// :root{
+//     // Vars CSS
+//     // --transition-duration-g: 0.3s;
+//     // --transition-ft-g: ease-in-out;
+    
+// }
+
+$breakpoints: (
+    xs: 30em,   /* 480px  .-> 16px */
+    sm: 37.5em, /* 600px  .-> 16px */
+    md: 45em,   /* 720px  .-> 16px */
+    lg: 64em,      /* 1024px .-> 16px*/
+    xl: 75em      /* 1200px .-> 16px*/
+)
+
