@@ -1,4 +1,4 @@
-import Component from '../protto/Component.js'
+import Component from '../prottoDom/Component.js'
 
 const SearchPage = new Component({
   name: 'SearchPage',

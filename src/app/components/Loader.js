@@ -1,7 +1,7 @@
 
-export default function (props = {}) {
+export default function () {
   return (
-    `<div>
+    `<div class="main-loader">
       <h2>Loading...</h2>
     </div>`
   )

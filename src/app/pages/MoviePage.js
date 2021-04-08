@@ -1,5 +1,5 @@
-import Component from '../protto/Component.js'
-import Router from '../protto/Router.js'
+import Component from '../prottoDom/Component.js'
+import Router from '../prottoDom/Router.js'
 import Loader from '../components/Loader.js'
 
 const loadMovie = async function () {

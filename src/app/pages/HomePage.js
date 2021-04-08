@@ -1,15 +1,10 @@
-import Component from '../protto/Component.js'
+import Component from '../prottoDom/Component.js'
 import Header from '../components/Header.js'
 import MoviesCarruoselByTrending from '../components/MoviesCarruoselByTrending.js'
 // import Loader from '../components/Loader.js'
 
 const HomePage = new Component({
   name: "Home",
-
-  state: {
-    loader: true
-  },
-
   template: function (props = {}) {
     return (
       `<div id="app">
@@ -18,12 +13,6 @@ const HomePage = new Component({
         ${MoviesCarruoselByTrending.render()}
       </div>`
     )
-  },
-
-  events() {
-  },
-
-  componentDidMount: async function () {
   }
 })
 
