@@ -1,5 +1,10 @@
 /node_modules
 /vendor
+/src/local/
+/src/assets/
+/src/themoviedb/
+/src/css
+/src/webfonts
 .env
 .env.backup
 npm-debug.log

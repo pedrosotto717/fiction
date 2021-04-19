@@ -1,7 +1,17 @@
-export default function({className = '', index = 0}) {
+import { makePoster } from '../services/API.js'
+
+export default function ({ className = '', index = 0, data }) {
+  let { release_date } = data
+  release_date = release_date.split('-')[0]
   return (
-    `<div class=${className}>
-      <a href="#/movie/${index}">${index}</a>
+    `<div class="${className} movie-card">
+      <a class="movie-card__link" href="#/movie/${index}">
+        <div class="poster-container">
+          <p class="release_year">${release_date}</p>
+          <img class="poster-img" src="${makePoster(data.poster_path)}" alt="${data.original_title}" />
+        </div>
+        <p class="movie-card__title">${data.title}</p>
+      </a>
     </div>`
   )
 }
