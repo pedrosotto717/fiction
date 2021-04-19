@@ -15,21 +15,23 @@ export default (function() {
     this.config.makeSelector = (id_target) => `${this.selector}[id-target=${id_target}]`;
     this.nodesCollection = new Map()
 
-    if (valueState !== null && valueState !== undefined) {
+    if (valueState !== null && valueState !== undefined)
       defineState(this, valueState)
-    }
 
     if (Array.isArray(_config.useContext))
       makeContext.call(this, _config.useContext)
 
-    if (typeof _config.componentDidMount === "function")
-      this.config.componentDidMount = _config.componentDidMount
-
     if (typeof _config.componentWillMount === "function")
       this.config.componentWillMount = _config.componentWillMount
 
+    if (typeof _config.componentDidMount === "function")
+      this.config.componentDidMount = _config.componentDidMount
+
     if (typeof _config.componentWillUpdate === "function")
       this.config.componentWillUpdate = _config.componentWillUpdate
+
+    if (typeof _config.componentDidUpdate === "function")
+      this.config.componentDidUpdate = _config.componentDidUpdate
 
     if (typeof _config.events === "function")
       _config.events.call(this)
@@ -54,14 +56,14 @@ export default (function() {
     }
   }
 
-  Component.prototype.render = function(props, id_target = 'unique') {
+  Component.prototype.render = function(props = {}, id_target = 'unique') {
     if (this.nodesCollection.size === 0) {
       executeCallback.call(this, this.config.componentWillMount)
-      setTimeout(() => executeCallback.call(this, this.config.componentDidMount), 100);
+      setTimeout(() => executeCallback.call(this, this.config.componentDidMount), 100)
     }else{
       executeCallback.call(this, this.config.componentWillUpdate)
+      setTimeout(() => executeCallback.call(this, this.config.componentDidUpdate), 100)
     }
-
     this.nodesCollection.set(id_target, { props })
     const tplNode = DOM.htmlToNode(this.template(props))
 
@@ -75,6 +77,7 @@ export default (function() {
   Component.prototype.reRender = function(nodeKey, { props }) {
     const elem = document.querySelector(this.config.makeSelector(nodeKey)),
       virtual = DOM.htmlToNode(this.template(props)) || null
+      console.log(nodeKey, this.config.makeSelector(nodeKey))
 
     if (elem === null || virtual === null) return false
     if (elem.isEqualNode(virtual)) return false

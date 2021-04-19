@@ -1,24 +1,21 @@
 export default (() => {
   let routes = null,
     currentRoute = {},
-    subscriber = (obj) => obj
+    subscriber = (obj) => obj,
+    routeChangeEvent = new CustomEvent('routeChange')
 
   const load = (_routes) => routes = _routes
 
   const init = (executeHandler = false) => {
-    window.addEventListener('hashchange', ev => {
+    const routing = () => {
       const path = cleanUrl(location.hash.substring(1))
       resolve(path)
 
       if (executeHandler === true) currentRoute.handler(currentRoute.urlParams)
-    });
+    }
 
-    window.addEventListener('DOMContentLoaded', ev => {
-      const path = cleanUrl(location.hash.substring(1))
-      resolve(path)
-
-      if (executeHandler === true) currentRoute.handler(currentRoute.urlParams)
-    });
+    window.addEventListener('hashchange', routing);
+    window.addEventListener('DOMContentLoaded', routing);
   }
 
   const cleanUrl = (url) => {
@@ -39,6 +36,8 @@ export default (() => {
       console.warn('404 NotFound')
       return false
     }
+
+    document.dispatchEvent(routeChangeEvent)
     return subscriber(currentRoute) || null
   }
 

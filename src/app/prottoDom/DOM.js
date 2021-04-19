@@ -1,4 +1,4 @@
-export default (function() {
+export default (function () {
   const events = []
 
   function parseHtml(html) {
@@ -53,7 +53,7 @@ export default (function() {
 
 
   /**
-   * clean and remove the childreElement of one Node
+   * clean and remove the childrenElement of one Node
    * @param {string|HTMLHtmlElement} element
    */
   function clear(element) {
@@ -77,7 +77,7 @@ export default (function() {
   /**
    * add one new 'event' al 'listener of events' of the DOM
    * @param {string} type
-   * @param {function|callback|clousure} handler
+   * @param {function|callback|closure} handler
    * @param {string} selector
    */
   function addEventListener(type, handler, selector = false) {
