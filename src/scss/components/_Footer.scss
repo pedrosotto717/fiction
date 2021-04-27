@@ -1,0 +1,13 @@
+footer{
+	display: flex;
+	align-items: flex-end;
+	min-height: 30vh;
+	background-color: $main-color;
+	flex-wrap: wrap;
+
+	p{
+		width: 100%;
+		display: block;
+		color: #ccc;
+	}
+}

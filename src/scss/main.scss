@@ -1,16 +1,26 @@
-// -- Utilities
-@import 'utilities/variables';
-@import 'utilities/mq';
-
 // -- Base
+@import 'base/variables'; // whitOut Settings
 @import 'base/reset';
 @import 'base/normalize';
-@import 'base/typo';
+@import 'base/typo'; // whitOut Settings
 
+// -- Utilities
+@import 'utilities/media_queries';
+@import 'utilities/linear_gradient';
 
 // -- Components
+@import 'components/btn';
 @import 'components/NavBar';
-@import 'components/MoviesCarruosel';
-
+@import 'components/Header';
+@import 'components/MoviesCarousel';
+@import 'components/MovieCard';
+@import 'components/MovieGenres';
+@import 'components/Footer';
+@import 'components/GlobalLoader';
+@import 'components/InternalLoader';
 
 // -- Layout
+@import 'layout/all';
+
+// -- Views
+// @import 'views/home'

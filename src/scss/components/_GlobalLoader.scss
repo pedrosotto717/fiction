@@ -1,0 +1,19 @@
+.global-loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($bg-color, 0.85);
+  z-index: 1000;
+  overflow: hidden;
+
+  img{
+    display: block;
+    width: auto;
+    width: 200px
+  }
+}

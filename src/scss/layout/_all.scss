@@ -1,0 +1,43 @@
+body{
+	background: $bg-color;
+
+	@include mq(md){
+		font-size: 15px;
+	}
+}
+
+a{
+	color: #fff;
+	&:hover{
+		color: #fff;
+	}
+
+	&:visited{
+		color: #fff;
+	}
+}
+
+img{
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.without-transition{
+	transition: all 0s linear 0s;
+}
+
+.container{
+	max-width: $max-width;
+	margin-left: auto;
+	margin-right: auto;
+
+	@include mq(md){
+		padding: 0.5rem;
+	}
+}
+
+.fa-star{
+	color: gold;
+	font-size: 1rem;
+	margin: 0.15rem;
+}

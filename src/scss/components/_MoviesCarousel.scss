@@ -1,0 +1,135 @@
+$padding-top: 10px;
+
+.carousel{
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	width: 100%;
+	height: auto;
+	padding: 0.5rem;
+	overflow: hidden;
+
+	.carousel__header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__title{
+		font-family: $font-main;
+		font-size: 2rem;
+		font-weight: bold;
+		display: inline-flex;
+	}
+
+	&__link-more{
+		font-size: 1rem;
+		text-decoration: underline;
+		&:hover{
+			color: $primary-color;
+		}
+	}
+
+	@include mq(md){
+		&__title{
+			font-size: 1.5rem;
+		}
+
+		&__link-more{
+			font-size: .8rem;
+			padding: .55rem;
+		}
+	}
+
+	@include mq(xs){
+		.movies-carousel{
+			justify-content: flex-start;
+			.movie-card{
+				margin-right: 1rem;
+			}
+		}
+	}
+}
+
+
+.movies-carousel-container{
+	display: block;
+	flex-wrap: nowrap;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+	margin: 1rem 0;
+	height: auto;
+	min-height: $movie-card-height;
+	max-height: $movie-card-height*1.25;
+	overflow: hidden;
+}
+
+.movies-carousel{
+	display: flex;
+	flex-wrap: nowrap;
+	max-width: 100%;
+	width: auto;
+	justify-content: space-between;
+	padding: 0.25rem .1rem;
+	padding-top: $padding-top;
+	z-index: 8;
+}
+
+.controls-carousel{
+	transition: all 1s ease;
+	position: absolute;
+	height: $movie-card-height + 1;
+	max-height: 100%;
+	width: 40px;
+	z-index: 10;
+	top: $padding-top;
+	opacity: 0.85;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .25s linear;
+
+	&:hover{
+		span.fa{
+			color: rgba(#fff, 1);
+		}
+	}
+
+	span.fa{
+		position: relative;
+		font-size: 1.25rem;
+		color: rgba(#fff, 0.85);
+		line-height: 0;
+		z-index: -1;
+	}
+}
+
+.movies-carousel-container .control-carousel-prev{
+	left: 0;
+	background: linear-gradient(90deg,
+		rgba($main-color, 0.9),
+		rgba(lighten($main-color, 10), 0.4),
+		transparent);
+}
+
+.movies-carousel-container .control-carousel-prev:hover{
+	background: linear-gradient(90deg,
+		rgba($main-color, 0.95),
+		rgba(lighten($main-color, 10), 0.6),
+		rgba(lighten($main-color, 10), 0.05));
+}
+
+.movies-carousel-container .control-carousel-next{
+	right: 0;
+	background: linear-gradient(-90deg,
+		rgba($main-color, 0.9),
+		rgba(lighten($main-color, 10), 0.4),
+		transparent);
+}
+
+.movies-carousel-container .control-carousel-next:hover{
+	background: linear-gradient(-90deg,
+		rgba($main-color, 0.95),
+		rgba(lighten($main-color, 10), 0.6),
+		rgba(lighten($main-color, 10), 0.05));
+}

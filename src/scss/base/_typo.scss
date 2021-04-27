@@ -1,24 +1,27 @@
-/*
 @font-face {
-  font-family: 'Roboto';
-  src: url("../fonts/Roboto-Medium.ttf");
-  font-weight: normal;
-  font-style: normal;
-}*/
-
-@font-face {
-  font-family: 'Roboto R';
-  src: url("../fonts/Roboto-Regular.ttf");
+  font-family: 'Raleway';
+  src: url($fonts-path + "/Raleway-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Exo';
-  src: url("../fonts/Exo2-Light.ttf");
+  font-family: 'Roboto';
+  src: url($fonts-path + "/Roboto-Light.ttf");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url($fonts-path + "/Roboto-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url($fonts-path + "/Roboto-Bold.ttf");
   font-weight: bold;
   font-style: normal;
 }
-
-
-//Monda, Roboto, 'Lucida Sans'

@@ -91,7 +91,7 @@ button[type="reset"],
 }
 
 *::selection{
-  background-color: transparentize($enf-color, $amount: .8) ;
+  background-color: transparentize($primary-color, $amount: .8) ;
 }
 
 main{
@@ -103,5 +103,5 @@ main{
 a,
 a:visited,
 a:active{
-  color: #000;
+  color: #fff;
 }

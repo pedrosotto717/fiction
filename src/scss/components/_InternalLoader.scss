@@ -1,0 +1,17 @@
+.internal-loader{
+	min-width: 200px;
+	grid-column: 1 / -1;
+	grid-row: 1 / -1;
+	justify-self: center;
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	background: transparent;
+	color: #fff;
+	font-size: 2rem;
+	letter-spacing: 2px;
+	line-height: 200px;
+	background-image: url('../../assets/images/Infinity-1s.svg');
+}
