@@ -1,18 +1,21 @@
-export default function(props = {}) {
+export default function (props = {}) {
   return (
-    `this is the NavBar.
-    <ul>
-      <li>
-        <a href="#/">HOME</a>
-      </li>
+    `<div class="nav-bar-container">
+      <nav class="container nav-bar">
+        <div class="logo-title">
+          <h1>Fiction</h1>
+        </div>
 
-      <li>
-        <a href="#/search">Search</a>
-      </li>
+        <div class="search-bar">
+          {searchBar.render()}
+        </div>
 
-      <li>
-        <a href="#/movie/50912">Test Movie</a>
-      </li>
-    </ul>`
+        <div class="main-menu">
+          <a class="main-menu__link btn" href="#/">Home</a>
+          <a class="main-menu__link btn" href="#/search">Search</a>
+          <a class="main-menu__link btn" href="#/movie/50912">Test Movie</a>
+        </div>
+      </nav>
+    </div>`
   )
 }

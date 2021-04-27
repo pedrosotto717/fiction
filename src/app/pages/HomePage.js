@@ -1,6 +1,8 @@
 import Component from '../prottoDom/Component.js'
 import Header from '../components/Header.js'
-import MoviesCarruoselByTrending from '../components/MoviesCarruoselByTrending.js'
+import CarouselPopularMovies from '../components/CarouselPopularMovies.js'
+import CarouselTrendingMovies from '../components/CarouselTrendingMovies.js'
+import MovieGenres from '../components/MovieGenres.js'
 // import Loader from '../components/Loader.js'
 
 const HomePage = new Component({
@@ -8,9 +10,13 @@ const HomePage = new Component({
   template: function (props = {}) {
     return (
       `<div id="app">
-        <h1>Bienvenidos al Home</h1>
-        ${Header()}
-        ${MoviesCarruoselByTrending.render()}
+        ${Header.render()}
+        ${CarouselPopularMovies.render()}
+        ${CarouselTrendingMovies.render()}
+        <div style="display:none" class="last-trailers">
+          <h1>Last Trailers</h1>
+        </div>
+        ${MovieGenres.render()}
       </div>`
     )
   }

@@ -1,14 +1,19 @@
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
-import Loader from '../components/Loader.js'
+import {AppContext} from '../states/AppContext.js'
 
 const loadMovie = async function () {
-  const {args} = Router.dispatch()
-  setTimeout(()=>{
+  const { args } = Router.dispatch()
+  setTimeout(() => {
     this.setState({ movieId: args.id, loader: false });
-  },1000)
+    this.pushContext({loading: false})
+  }, 1000)
 }
 
+/**
+  va a tener todos los trailers al costado izquierdo
+  y cuando los seleccionen  va a cargar el url del trailer
+**/
 const MoviePage = new Component({
   name: "Movie",
 
@@ -17,12 +22,14 @@ const MoviePage = new Component({
     movieId: null
   },
 
+  useContext: AppContext.provider(),
+
   template: function (props = {}) {
     return (
-      `<div id="app">
+      `<div id="app" class="container">
         ${this.state.loader === true
-          ? Loader()
-          : `<h1>Bienvenidos a la Movie : ${this.state.movieId}</h1>`}
+        ? ''
+        : `<h1>Bienvenidos a la Movie : ${this.state.movieId}</h1>`}
       </div>`
     )
   },

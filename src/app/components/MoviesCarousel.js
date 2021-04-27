@@ -1,5 +1,5 @@
 import MovieCard from './MovieCard.js'
-import Carousel from '../helpers/Carousel.js'
+import InfiniteCarousel from '../helpers/InfiniteCarousel.js'
 
 function MoviesCarousel({ name, getMovies, timerCarousel, title }) {
   return {
@@ -18,8 +18,8 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title }) {
           <div class="carousel__header">
             <h3 class="carousel__title">
               ${title}
-              </h3>
-            <a class="carousel__link-more">Explore More</a>
+            </h3>
+            <a href="#/movies" class="carousel__link-more btn">Explore More</a>
           </div>
 
           <div class="movies-carousel-container">
@@ -55,16 +55,18 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title }) {
 
       this.setState({ movies: moviesData.results || new Array(10), loading: false })
 
-      const carouselLastMovies = new Carousel({
+      const carouselLastMovies = new InfiniteCarousel({
         container: `${this.selector} .movies-carousel`,
         classItems: `movies-carousel__item`,
         prevSelector: `${this.selector} button.control-carousel-prev`,
         nextSelector: `${this.selector} button.control-carousel-next`,
-        timeInterval: timerCarousel || 5000
+        timeInterval: timerCarousel
       })
 
       this.setState({ carousel: carouselLastMovies })
-      document.addEventListener('routeChange', () => carouselLastMovies.stop());
+      document.addEventListener('routeChange', () => {
+        carouselLastMovies.stop()
+      });
     },
 
     componentDidUpdate: function () {

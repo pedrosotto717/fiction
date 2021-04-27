@@ -1,4 +1,5 @@
 import { makePoster } from '../services/API.js'
+import {cutText} from '../helpers/cutText_dan.js'
 
 export default function ({ className = '', index = 0, data }) {
   let { release_date } = data
@@ -10,7 +11,7 @@ export default function ({ className = '', index = 0, data }) {
           <p class="release_year">${release_date}</p>
           <img class="poster-img" src="${makePoster(data.poster_path)}" alt="${data.original_title}" />
         </div>
-        <p class="movie-card__title">${data.title}</p>
+        <p class="movie-card__title">${cutText(data.title, 95)}</p>
       </a>
     </div>`
   )

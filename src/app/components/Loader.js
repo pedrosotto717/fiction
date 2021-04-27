@@ -1,8 +1,8 @@
 
-export default function () {
+export default function Loader() {
   return (
-    `<div class="main-loader">
-      <h2>Loading...</h2>
+    `<div class="loader container">
+      <img src="assets/images/Infinity-1s.svg" width="60" alt="Loading">
     </div>`
   )
 }

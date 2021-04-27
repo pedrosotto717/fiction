@@ -5,7 +5,9 @@ const SearchPage = new Component({
 
   template: function (props = {}) {
     return (
-      `<h1>This Is the SearchPage</h1>`
+      `<div class="container">
+        <h1>This Is the SearchPage</h1>
+      </div>`
     )
   }
 })

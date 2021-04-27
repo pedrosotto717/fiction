@@ -57,6 +57,7 @@ export default (function() {
   }
 
   Component.prototype.render = function(props = {}, id_target = 'unique') {
+    console.log(this.nodesCollection.size, this.config.key)
     if (this.nodesCollection.size === 0) {
       executeCallback.call(this, this.config.componentWillMount)
       setTimeout(() => executeCallback.call(this, this.config.componentDidMount), 100)
@@ -77,7 +78,6 @@ export default (function() {
   Component.prototype.reRender = function(nodeKey, { props }) {
     const elem = document.querySelector(this.config.makeSelector(nodeKey)),
       virtual = DOM.htmlToNode(this.template(props)) || null
-      console.log(nodeKey, this.config.makeSelector(nodeKey))
 
     if (elem === null || virtual === null) return false
     if (elem.isEqualNode(virtual)) return false
