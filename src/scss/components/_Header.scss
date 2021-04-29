@@ -21,6 +21,10 @@ header.header-container {
       font-size: .9rem;
     }
   }
+
+  @media (max-height: 500px){
+    min-height: 400px;
+  }
 }
 
 .main-header {
@@ -43,10 +47,19 @@ header.header-container {
 .header {
   width: 75%;
   max-width: 75%;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   height: auto;
   top: 25%;
   position: absolute;
+  
+  &.is-animate{
+    opacity: 0;
+    animation: rightAnimateHeader 1.25s ease 1s forwards;
+  }
+  
+  @keyframes rightAnimateHeader {
+    to{ opacity: 1; }
+  }
 
   &__title {
     font-size: 2.5rem;
@@ -69,11 +82,13 @@ header.header-container {
     align-items: center;
     height: 45px;
     color: #fff;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease,
+                box-shadow .25s ease,
+                background-color .3s ease;
     text-transform: capitalize;
     
-    transform: translate3d(0,-2px,0);
-    box-shadow: 0 5px 5px -3px #000;
+    transform: translate3d(0, 0,0);
+    box-shadow: shadow-blur(6px, #000);
     background-color: rgba(#000, .85);
 
     .fa{
@@ -85,10 +100,14 @@ header.header-container {
     }
 
     &:hover{
-      box-shadow: 0 5px 5px -3px transparent;
-      transform: translate3d(0,0,0);
+      box-shadow: shadow-blur(6px, transparent);
+      transform: translate3d(0,5px,0);
       background-color: #000;
     }
+  }
+
+  @include mq_next(xxl){
+    padding: 2rem 3.75rem;
   }
 
   @include mq(lg){

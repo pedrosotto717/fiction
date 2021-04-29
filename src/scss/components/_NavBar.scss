@@ -51,12 +51,15 @@ nav.nav-bar {
 
   &__link {
     margin-left: 1rem;
-    transition: background-color.3s ease;
-    box-shadow: 0 3px 3px -2px $primary-color;
-    background-color: $primary-color;
-
+    transition: transform .3s ease,
+                box-shadow .2s ease;
+    box-shadow: shadow(2px, $primary-color);
+    transform: translate3d(0, 0, 0);
+    background-color: darken($primary-color, 10);
+    
     &:hover {
-	    background-color: darken($primary-color, 7);
+      transform: translate3d(0, 2px, 0);
+      box-shadow: shadow(2px, transparent);
     }
   }
 }

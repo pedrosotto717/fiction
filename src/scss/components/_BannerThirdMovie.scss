@@ -1,5 +1,4 @@
 $bg-overlay: #000;
-$height-container: 60vh;
 
 .banner-third-movie{
   --bg-banner-third-movie: url('../../themoviedb/images/egg7KFi18TSQc1s24RMmR9i2zO6.jpg');
@@ -11,7 +10,7 @@ $height-container: 60vh;
 
   margin: 2rem 0;
   height: 60vh;
-  min-height: 450px;
+  min-height: 420px;
   max-height: 720px;
   width: 100%;
   display: flex;
@@ -96,8 +95,6 @@ $height-container: 60vh;
   }
 
   &__btn{
-    $direction: 3px;
-
     display: inline-flex;
     align-items: center;
     height: 45px;
@@ -106,16 +103,17 @@ $height-container: 60vh;
     transition: all 0.3s ease;
     text-transform: capitalize;
     border: 1px solid #fff;
-    transition: transform  .3s ease,
-                opacity .5s ease 1s,
-    box-shadow .3s ease;
-    box-shadow: $direction $direction 0 0 #fff;
+    transition: transform .3s ease,
+                box-shadow .25s ease,
+                opacity .5s ease 1s;
+
+    box-shadow: shadow(3px, #fff);
     transform: translate3d(0,0,0);
     opacity: 0;
     
     &:hover{
-      box-shadow: $direction $direction 0 0 transparent;
-      transform: translate3d($direction, $direction, 0);
+      box-shadow: shadow(3px, transparent);
+      transform: translate3d(0, 3px, 0);
     }
   }
 
@@ -168,8 +166,7 @@ $height-container: 60vh;
     --overlay-size: 20%;
     --font-size-year: 10rem;
 
-    height: $height-container*1.3;
-    min-height: auto;
+    min-height: 500px;
     flex-direction: column-reverse;
 
     &__header{
@@ -179,14 +176,15 @@ $height-container: 60vh;
     }
 
     &__year{
-      padding-top: 19%;
+      padding-top: 18%;
       align-items: start;
       padding-left: 0;
     }
   }
 
   @include mq(sm){
-    &__header{padding-bottom: 10%;}
+    --font-size-year: 9.5rem;
+    &__header{padding-bottom: 4.25rem;}
     &__overview{ display: none;  }
     &__btn{ margin-top: 1.25rem; }
   }

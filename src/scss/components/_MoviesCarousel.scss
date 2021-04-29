@@ -59,8 +59,8 @@ $padding-top: 10px;
 	position: relative;
 	margin: 1rem 0;
 	height: auto;
-	min-height: $movie-card-height;
-	max-height: $movie-card-height*1.25;
+	min-height: var(--movie-card-height);
+	max-height: calc(var(--movie-card-height)*1.25);
 	overflow: hidden;
 }
 
@@ -78,7 +78,7 @@ $padding-top: 10px;
 .controls-carousel{
 	transition: all 1s ease;
 	position: absolute;
-	height: $movie-card-height + 1;
+	height: calc(var(--movie-card-height) + 1px);
 	max-height: 100%;
 	width: 40px;
 	z-index: 10;

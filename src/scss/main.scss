@@ -1,12 +1,13 @@
+// -- Utilities
+@import 'utilities/media_queries';
+@import 'utilities/linear_gradient';
+@import 'utilities/shadow';
+
 // -- Base
 @import 'base/variables'; // whitOut Settings
 @import 'base/reset';
 @import 'base/normalize';
 @import 'base/typo'; // whitOut Settings
-
-// -- Utilities
-@import 'utilities/media_queries';
-@import 'utilities/linear_gradient';
 
 // -- Components
 @import 'components/btn';

@@ -1,6 +1,6 @@
 .movie-card{
 	display: flex;
-	min-width: $movie-card-width;
+	min-width: var(--movie-card-width);
 	width: auto;
 	color: #fff;
 	margin-right: 1.25rem;
@@ -38,8 +38,8 @@
 	text-align: center;
 	align-items: center;
 
-	min-height: $movie-card-height;
-	min-width: $movie-card-width;
+	min-height: var(--movie-card-height);
+	min-width: var(--movie-card-width);
 	overflow: hidden;
 	background: linear-gradient(-45deg,
 	$main-color,

@@ -48,7 +48,6 @@ class InfiniteCarousel {
     this.isReady = false
     const firstItem = this.itemsCarrousel[0]
     firstItem.classList.add('will-change')
-    console.log(this.sizeOffset)
     firstItem.style.marginLeft = `-${this.sizeOffset}px`
     setTimeout(() => {
       this.parentContainer.append(firstItem)

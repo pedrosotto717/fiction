@@ -9,7 +9,7 @@ import { setTitle } from '../helpers/title.js'
 const HomePage = new Component({
   name: "Home",
   template: function (props = {}) {
-    setTitle('This is Home')
+    setTitle('Fiction')
     return (
       `<div id="app">
         ${Header.render()}

@@ -36,7 +36,7 @@ const bannerThirdMovie = new Component({
 
   componentDidMount: async function () {
     const { results = [] } = await getPopular()
-    this.setState({ movie: results[2] })
+    this.setState({ movie: results[1] })
 
     const callbackAnimation = (ev) => {
       const $element = document.querySelector('.banner-third-movie')

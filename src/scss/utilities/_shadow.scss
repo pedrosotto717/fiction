@@ -1,0 +1,12 @@
+
+@function shadow($x, $color){
+  @return 0px $x 0px -#{($x*0.2)} $color;
+}
+
+@function shadow-blur($x, $color){
+  @return 0 $x ($x*0.711) -#{($x*0.58)} $color;
+}
+
+@mixin btn-shadow($x, $color){
+  box-shadow: shadow($x, $color);
+}

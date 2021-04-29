@@ -7,7 +7,8 @@ const Header = new Component({
   name: 'Header',
 
   state: {
-    data: null
+    data: null,
+    animate: true
   },
 
   template: function (props = {}) {
@@ -17,7 +18,7 @@ const Header = new Component({
         <div class="main-header container">
           ${this.state.data
         ? `
-              <div class="header">
+              <div class="header ${this.state.animate ? 'is-animate' : ''}">
                 <h2 class="header__title">
                   <a href="#/movie/${this.state.data.id}">
                     ${this.state.data.title}
@@ -59,6 +60,10 @@ const Header = new Component({
           data: movie
         })
       })
+
+    document.addEventListener('routeChange', () => {
+      this.setState({ animate: false })
+    });
   }
 })
 

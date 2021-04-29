@@ -27,7 +27,7 @@ $color-items: #070707;
 .genres-list{
 	padding: 2.5rem 1rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min-content, 185px) );
+	grid-template-columns: repeat(auto-fit, minmax(min-content, 185px));
 	grid-auto-rows: 85px;
 	justify-content: space-evenly;
 	gap: 1.5rem;
@@ -40,12 +40,12 @@ $color-items: #070707;
 
 	&__item{
 		background-color: rgba($color-items, 0.65);
-		border-radius: 7px;
+		border-radius: 2px;
 		transition: transform 1.5s ease 0.25s,
-								background-color .35s ease 0s;
-		box-shadow: 0 10px 20px -10px $color-items;
-
-
+								background-color .35s ease 0s,
+								box-shadow .3s linear;
+		box-shadow:  shadow-blur(12px, $color-items);
+		
 		@include mq_next(1000px){
 			visibility: hidden;
 			@for $i from 1 to 20 {
@@ -101,14 +101,8 @@ $color-items: #070707;
 	}
 
 	&__item:hover{
+		transition: all .3s ease;
 		background-color: rgba($color-items, 0.45) !important;
 	}
-
-	// @include mq(1000px){
-	// 	 &__item{
-	// 		transform: translate3d(0,0,0);
-	// 		visibility: visible;
-	// 	}
-	// }
 }
 

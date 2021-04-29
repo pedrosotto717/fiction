@@ -13,8 +13,12 @@ $bg-color-two: #0d2032;
 $main-color: #080f28;
 $primary-color: #1bb4dc;
 $fonts-path: "../assets/fonts";
-$movie-card-height: (308px);
-$movie-card-width: 206px;
+
+:root{
+  --movie-card-width: 230px;
+  --movie-card-height: 345px;
+}
+
 
 // $icon-w: 20px;
 // $icon-h: 20px;
