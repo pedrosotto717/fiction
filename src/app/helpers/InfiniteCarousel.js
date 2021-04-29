@@ -15,27 +15,30 @@ class InfiniteCarousel {
     this.timeInterval = settings.timeInterval || false
     DOM.addEventListener('click', () => this.goLeft(), settings.prevSelector)
     DOM.addEventListener('click', () => this.goRight(), settings.nextSelector)
-    addEventListener('resize', () => this.sizeOffset = calculateSizeItem(this.itemsCarrousel[0]))
+    addEventListener('resize', () => {
+      let newSize = calculateSizeItem(this.itemsCarrousel[0])
+      this.sizeOffset = newSize < (this.sizeOffset * 1.25) ? newSize : this.sizeOffset
+    })
     this.init(this.settings)
     this.run()
   }
 
   init({ container, classItems }) {
     try {
-      this.parentContainer = typeof container === 'string' ? document.querySelector(container) || null   : container
-      if(!this.parentContainer)
+      this.parentContainer = typeof container === 'string' ? document.querySelector(container) || null : container
+      if (!this.parentContainer)
         this.stop()
 
       this.itemsCarrousel = this.parentContainer.getElementsByClassName(classItems) || null
 
-      if(this.parentContainer === null && this.itemsCarrousel === null)
+      if (this.parentContainer === null && this.itemsCarrousel === null)
         return this.stop()
 
       this.isReady = true
       this.isOnPause = false
       this.sizeOffset = calculateSizeItem(this.itemsCarrousel[0])
       this.isReady = true
-    } catch(e) {
+    } catch (e) {
       this.stop()
     }
   }
@@ -45,8 +48,8 @@ class InfiniteCarousel {
     this.isReady = false
     const firstItem = this.itemsCarrousel[0]
     firstItem.classList.add('will-change')
+    console.log(this.sizeOffset)
     firstItem.style.marginLeft = `-${this.sizeOffset}px`
-
     setTimeout(() => {
       this.parentContainer.append(firstItem)
       firstItem.classList.add('without-transition')
@@ -84,7 +87,7 @@ class InfiniteCarousel {
   }
 
   run() {
-    if(this.timeInterval){
+    if (this.timeInterval) {
       this.intervalID = setInterval(() => {
         if (this.isOnPause === false)
           this.goRight()
@@ -100,7 +103,7 @@ class InfiniteCarousel {
 
   updatingCarousel() {
     this.init(this.settings)
-    if(this.isReady === false && this.isOnPause === true) return false
+    if (this.isReady === false && this.isOnPause === true) return false
     this.run()
   }
 }

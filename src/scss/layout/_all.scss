@@ -1,6 +1,10 @@
 body{
 	background: $bg-color;
 
+	@include mq_next(xxl){
+		font-size: 17px;
+	}
+
 	@include mq(md){
 		font-size: 15px;
 	}

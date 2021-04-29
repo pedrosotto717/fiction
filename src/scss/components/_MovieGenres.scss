@@ -1,13 +1,23 @@
+$color-items: #070707;
+
 .movie-genres-container{
 	--bg-genres: url('');
 	width: 100%;
 	min-height: 400px;
-	background: linear-gradient(
-		rgba(lighten($main-color, 10%), 0.3) 65%,
-		rgba($bg-color + $primary-color, 0.2)),
-		var(--bg-genres);
-	background-size: cover, cover;
+	background: darken($bg-color, 5);
+	position: relative;
+	overflow: hidden;
+
+	background: linear-gradient( rgba(lighten($main-color, 10), 0.3) 65%,
+			rgba($bg-color, 0.4),
+			rgba($bg-color, 0.6),
+			rgba($bg-color, 0.8),
+			rgba($bg-color, 0.9),
+			$bg-color),
+			var(--bg-genres);
 	background-position: center, center;
+	background-size: 100%, cover;
+	background-repeat: no-repeat, no-repeat;
 
 	@include mq(md){
 		min-height: auto;
@@ -18,32 +28,29 @@
 	padding: 2.5rem 1rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min-content, 185px) );
-	grid-auto-rows: 80px;
+	grid-auto-rows: 85px;
 	justify-content: space-evenly;
 	gap: 1.5rem;
 	width: 100%;
 	height: 100%;
 	position: relative;
-	perspective: 100px;
+	perspective: 375px;
 	overflow: hidden;
 
 
 	&__item{
-		background-color: rgba(#000, 0.65);
+		background-color: rgba($color-items, 0.65);
 		border-radius: 7px;
-		transition: transform 1s ease 0.25s,
+		transition: transform 1.5s ease 0.25s,
 								background-color .35s ease 0s;
+		box-shadow: 0 10px 20px -10px $color-items;
+
 
 		@include mq_next(1000px){
 			visibility: hidden;
 			@for $i from 1 to 20 {
 				&:nth-child(#{$i}){
-					@if $i > 10 {
-						transform: translate3d(#{random(300)}px, -#{random(500)}px, 420px * $i);
-					}
-					@if $i < 11 {
-						transform: translate3d(-#{random(500)}px, #{random(300)}px, 510px * $i);
-					}
+					transform: translate3d(-500px * ($i*0.25), 300px * ($i*0.25) , 125px * $i);
 				}
 			}
 		}
@@ -55,11 +62,11 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		font-weight: bold;
+		// font-weight: bold;
 		width: 100%;
 		height: 100%;
 		font-family: $font-main;
-		letter-spacing: 1.5px;
+		letter-spacing: 2px;
 	}
 
 	@include mq(md){
@@ -85,16 +92,23 @@
 	}
 
 	&.animate &__item{
-		transform: translate3d(0,0,0) !important;
+		transform: translate3d(0,0,0);
 		visibility: visible;
 	}
-
+	
 	&:hover &__item{
-		background-color: rgba(#000, 0.45);
+		background-color: rgba($color-items, 0.85);
 	}
 
 	&__item:hover{
-		background-color: #000 !important;
+		background-color: rgba($color-items, 0.45) !important;
 	}
+
+	// @include mq(1000px){
+	// 	 &__item{
+	// 		transform: translate3d(0,0,0);
+	// 		visibility: visible;
+	// 	}
+	// }
 }
 

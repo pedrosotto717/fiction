@@ -9,12 +9,12 @@ import { AppContext } from '../states/AppContext.js';
   movie-list (search, genre) y movie (details)
 */
 
-const ACTION_ID = 28
 
 function setBackGround(elem, bgPath) {
-  const element = document.querySelector(elem)
-  if(element)
-    element.style.setProperty('--bg-genres',`url(../.${makeBackDrop(bgPath)})`)
+  const element = document.querySelector(elem) || null
+  if (element === null) return false
+
+  element.style.setProperty('--bg-genres', `url(../.${makeBackDrop(bgPath)})`)
 }
 
 const MovieGenres = new Component({
@@ -23,7 +23,8 @@ const MovieGenres = new Component({
   state: {
     loading: true,
     genres: [],
-    bgList: []
+    bgList: [],
+    classAnimation: ''
   },
 
   useContext: AppContext.provider(),
@@ -63,7 +64,7 @@ const MovieGenres = new Component({
   template: function (props = {}) {
     return (
       `<section class="movie-genres-container container">
-        <ul class="genres-list">
+        <ul class="genres-list ${this.state.classAnimation}">
           ${this.state.loading === true
         ? ''
         : this.state.genres.map((genre) => `
@@ -79,12 +80,12 @@ const MovieGenres = new Component({
   },
 
   componentDidMount: async function () {
-    const genres = await getGenres()
-
-    if (genres)
-      this.setState({ genres, loading: false })
-
     try {
+      const genres = await getGenres()
+
+      if (genres)
+        this.setState({ genres, loading: false })
+
       const bgGenres = storage.get('bg-genres-list')
 
       if (bgGenres) {
@@ -92,28 +93,33 @@ const MovieGenres = new Component({
         return false
       }
 
-      const { results } = await getPopular(),
-        bgList = {}
+      const bgList = {},
+        { results = [] } = await getPopular()
 
       genres.forEach(({ id }) => {
-        let { backdrop_path } = results.find(({ genre_ids }) => genre_ids.includes(id)) || {}
+        let { backdrop_path } = results.find(({ genre_ids }, index) => genre_ids.includes(id)) || {}
         bgList[id] = backdrop_path || ''
       });
+
       this.setState({ bgList })
       storage.set('bg-genres-list', bgList)
     } catch (e) {
-      console.log(e);
+      console.error(e);
     } finally {
       this.pushContext({ loading: false })
-      setBackGround('.movie-genres-container', this.state.bgList[ACTION_ID])
       let $element = document.querySelector('.genres-list')
 
       if (innerWidth > 1000) {
-        addEventListener('scroll', (ev) => {
+        const callbackAnimation = (ev) => {
           if ($element.getBoundingClientRect().top < (innerHeight * 0.85)) {
             $element.classList.add('animate')
+
+            this.setState({ classAnimation: "animate" })
+            removeEventListener('scroll', callbackAnimation)
           }
-        })
+        }
+
+        addEventListener('scroll', callbackAnimation)
 
         this.addEventListener('mouseover', (ev) => {
           const _id = parseInt(ev.target.dataset.genreId)
@@ -123,9 +129,19 @@ const MovieGenres = new Component({
           setBackGround('.movie-genres-container', this.state.bgList[_id])
         }, '.genres-list__link');
       } else {
-        $element.classList.add('animate')
+        this.setState({ classAnimation: "animate" })
       }
     } // end try_catch_finally
+  },
+
+  componentDidUpdate: async function () {
+    const { results = [] } = await getPopular()
+
+    setBackGround('.movie-genres-container',
+      Object.values(this.state.bgList)
+        .find(bg => bg !== ""
+          && bg !== results[0].backdrop_path
+          && bg !== results[1].backdrop_path))
   }
 });
 

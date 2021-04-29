@@ -1,12 +1,7 @@
 import Component from '../prottoDom/Component.js'
 import { getPopular, makeBackDrop } from '../services/API.js'
 import { cutText } from '../helpers/cutText_dan.js'
-
-function setBackGround(elem, bgPath) {
-  const element = document.querySelector(elem)
-  if(element)
-    element.style.setProperty('--bg-image',`url(../.${makeBackDrop(bgPath)})`)
-}
+import { makeBackGround } from '../helpers/makeBackGround.js'
 
 const Header = new Component({
   name: 'Header',
@@ -15,9 +10,10 @@ const Header = new Component({
     data: null
   },
 
-  template: function (props = {}) { // 28
+  template: function (props = {}) {
+    const url = makeBackGround(this.state.data ? this.state.data.backdrop_path : '')
     return (
-      `<header class="header-container">
+      `<header class="header-container" style="--bg-image: ${url};">
         <div class="main-header container">
           ${this.state.data
         ? `
@@ -56,19 +52,13 @@ const Header = new Component({
     getPopular()
       .then(({ results }) => {
         console.log(results)
-        // return results[0]
-        return results.find(({ genre_ids }) => genre_ids.includes(16)) // 14 / 16
+        return results[0]
       })
       .then(movie => {
         this.setState({
           data: movie
         })
-        setBackGround('.header-container', movie.backdrop_path)
       })
-  },
-
-  componentDidUpdate: function () {
-    setBackGround('.header-container', this.state.data.backdrop_path)
   }
 })
 

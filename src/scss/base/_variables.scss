@@ -1,43 +1,23 @@
 /* *************** Custom Properties *************** */
-// Vars SCSS
+// globals
 $max-width: 1800px;
 $font-size: 16px;
 $font-main: Raleway;
 $font-second: Roboto;
-// $font-aux: 'Roboto Th';
-$font-color: #fff;
 $transition-global: 0.3s ease 0s;
-// $bg-color: #0c1c30;
-// $bg-color-two: #0e1b29;
-// $main-color: #080f28;
 
-
-
+// Theme
+$font-color: #fff;
 $bg-color: #061830;
 $bg-color-two: #0d2032;
 $main-color: #080f28;
 $primary-color: #1bb4dc;
-// $primary-color: darken(#88dfff, 5%);
 $fonts-path: "../assets/fonts";
 $movie-card-height: (308px);
 $movie-card-width: 206px;
 
-
-// $bg-color: linear-gradient(to bottom,  #0e1b29 50%, #091e3a); // __T
-// $bg-color: linear-gradient(-45deg, #d558c8, #24d292);
-// $primary-color: lighten(#026785, 50%);
-// #44baa4 #e7ba41 #393e41
-
-
 // $icon-w: 20px;
 // $icon-h: 20px;
-
-// :root{
-//     // Vars CSS
-//     // --transition-duration-g: 0.3s;
-//     // --transition-ft-g: ease-in-out;
-
-// }
 
 $breakpoints: (
     xs: 30em,   /* 480px  .-> 16px */

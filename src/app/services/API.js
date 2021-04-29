@@ -14,9 +14,7 @@ export function makePoster(relativeUrl) {
 }
 
 export function makeBackDrop(relativeUrl) {
-  const a = provider.IMAGE_URL + relativeUrl
-  console.log(a)
-  return a
+  return provider.IMAGE_URL + relativeUrl
 }
 
 export async function getGenres() {

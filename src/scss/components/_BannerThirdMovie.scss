@@ -1,0 +1,193 @@
+$bg-overlay: #000;
+$height-container: 60vh;
+
+.banner-third-movie{
+  --bg-banner-third-movie: url('../../themoviedb/images/egg7KFi18TSQc1s24RMmR9i2zO6.jpg');
+  --overlay-direction: 90deg;
+  --overlay-size: 31%;
+  --width-right: 70%;
+  --move-x: -25%;
+  --font-size-year: 16rem;
+
+  margin: 2rem 0;
+  height: 60vh;
+  min-height: 450px;
+  max-height: 720px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    var(--overlay-direction),
+    $bg-overlay var(--overlay-size),
+    rgba($bg-overlay, .5),
+    transparent);
+  
+  &::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: var(--width-right);
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-image: var(--bg-banner-third-movie);
+    background-size: cover;
+    background-position: var(--move-x) center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: blur(1px);
+  }
+
+  &__header{
+    padding-left: 1rem;
+    width: 40%;
+    text-align: center;
+  }
+
+  &__title{
+    font-size: 3rem;
+    font-family: $font-main;
+    color: #fff;
+    font-weight: normal;
+    transition: all .75s ease-in-out;
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  &__overview{
+    word-spacing: 2.5px;
+    margin-top: .75rem;
+    padding: 0.5rem;
+    text-align: center;
+    line-height: 1.75;
+    color: #f0f0f0;
+    transition: all 1.2s ease-in-out .3s;
+    transform: translate3d(0, 360px, 0);
+  }
+
+  &__year{
+    width: var(--width-right);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10%;
+    
+    font-family: $font-second;
+    color: transparent;
+    font-size: var(--font-size-year);
+
+  
+    filter:  drop-shadow(-4px -4px 0 #fff) brightness(.85);
+    
+    background: var(--bg-banner-third-movie);
+    background-size: cover;
+    background-position: var(--move-x) center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__btn{
+    $direction: 3px;
+
+    display: inline-flex;
+    align-items: center;
+    height: 45px;
+    margin-top: .5rem;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    border: 1px solid #fff;
+    transition: transform  .3s ease,
+                opacity .5s ease 1s,
+    box-shadow .3s ease;
+    box-shadow: $direction $direction 0 0 #fff;
+    transform: translate3d(0,0,0);
+    opacity: 0;
+    
+    &:hover{
+      box-shadow: $direction $direction 0 0 transparent;
+      transform: translate3d($direction, $direction, 0);
+    }
+  }
+
+  @keyframes downAnimation {
+    0%, 50%{
+      transform: translate3d(0, 360px, 0);
+    }
+
+    100%{
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.animate{
+    .banner-third-movie{
+      &__title{
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      &__overview{
+        transform: translate3d(0, 0, 0);
+      }
+
+      &__btn{
+        animation: downAnimation 1.65s ease-in-out 0s;
+        opacity: 1;
+      }
+
+      &__year{
+        transition: filter 1s ease 1.35s;
+        filter:  drop-shadow(4px 4px 0 #fff) brightness(1.1);
+      }
+      
+    }
+  }
+
+  @include mq(960px){
+    --overlay-size: 42%;
+    --font-size-year: 11.65rem;
+
+    &__title{ font-size: 2.25rem;  }
+    &__overview, &__btn{  font-size: .9rem;  }
+  }
+
+  @include mq(md){
+    --width-right: 100%;
+    --overlay-direction: 0deg;
+    --move-x: 75%;
+    --overlay-size: 20%;
+    --font-size-year: 10rem;
+
+    height: $height-container*1.3;
+    min-height: auto;
+    flex-direction: column-reverse;
+
+    &__header{
+      width: 85%;
+      padding-bottom: 5%;
+      padding-left: 0;
+    }
+
+    &__year{
+      padding-top: 19%;
+      align-items: start;
+      padding-left: 0;
+    }
+  }
+
+  @include mq(sm){
+    &__header{padding-bottom: 10%;}
+    &__overview{ display: none;  }
+    &__btn{ margin-top: 1.25rem; }
+  }
+}
