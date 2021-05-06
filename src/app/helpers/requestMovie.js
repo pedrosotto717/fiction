@@ -9,13 +9,14 @@ const request = async (url, keyStorage = '') => {
     const response = await fetch(url)
 
     if (response.status !== 200)
-      return {}
+      return 'The Api is Inaccessible'
 
     data = await response.json()
     storage.set(keyStorage, data)
     return data
   } catch (err) {
-    return console.error(err)
+    console.error(err)
+    return 'An Error has Happened'
   }
 }
 

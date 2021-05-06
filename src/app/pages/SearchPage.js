@@ -1,5 +1,7 @@
 import { setTitle } from '../helpers/title.js'
 import Component from '../prottoDom/Component.js'
+import MovieList from '../components/MovieList.js'
+
 
 const SearchPage = new Component({
   name: 'SearchPage',
@@ -9,6 +11,7 @@ const SearchPage = new Component({
     return (
       `<div class="container">
         <h1>This Is the SearchPage</h1>
+        ${MovieList.render()}
       </div>`
     )
   }

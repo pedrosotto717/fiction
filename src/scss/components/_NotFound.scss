@@ -1,0 +1,14 @@
+.not-found--container{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  background-color: #000;
+  height: 100%;
+  justify-self: flex-end;
+
+  
+  // height: 100vh;
+
+  text-transform: uppercase;
+}

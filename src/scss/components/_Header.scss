@@ -1,10 +1,11 @@
 header.header-container {
   --bg-image: url('');
   width: 100%;
-  height: 70vh;
+  height: 75vh;
   min-height: 500px;
   max-height: 720px;
   position: relative;
+  margin-bottom: 1rem;
 
   @include mq(md){
     height: 60vh;
@@ -16,13 +17,13 @@ header.header-container {
     .header{
       top: 35%;
     }
-    .header__video-btn{ 
-      margin-top: .5rem; 
+    .header__video-btn{
+      margin-top: .5rem;
       font-size: .9rem;
     }
   }
 
-  @media (max-height: 500px){
+  @media screen and (max-height: 520px) and (max-width: 720px){
     min-height: 400px;
   }
 }
@@ -32,6 +33,7 @@ header.header-container {
   height: 100%;
   min-height: 100%;
   position: relative;
+  overflow: hidden;
   background: linear-gradient(rgba(lighten($main-color, 10%), 0.3) 65%,
     rgba($bg-color, 0.4),
     rgba($bg-color, 0.6),
@@ -47,24 +49,32 @@ header.header-container {
 .header {
   width: 75%;
   max-width: 75%;
-  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  padding: 0 2rem;
   height: auto;
   top: 25%;
   position: absolute;
-  
+
   &.is-animate{
+    transform: translateY(-50%);
     opacity: 0;
-    animation: rightAnimateHeader 1.25s ease 1s forwards;
+    animation: AnimateHeader 1.25s ease .5s forwards;
   }
-  
-  @keyframes rightAnimateHeader {
-    to{ opacity: 1; }
+
+  @keyframes AnimateHeader {
+    50%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+      transform: none;
+    }
   }
 
   &__title {
     font-size: 2.5rem;
     font-family: inherit;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   &__overview{
@@ -86,7 +96,7 @@ header.header-container {
                 box-shadow .25s ease,
                 background-color .3s ease;
     text-transform: capitalize;
-    
+
     transform: translate3d(0, 0,0);
     box-shadow: shadow-blur(6px, #000);
     background-color: rgba(#000, .85);
@@ -129,8 +139,6 @@ header.header-container {
 .header .header__movie-props {
   display: inline-flex;
   align-items: center;
-  height: 1.25rem;
-  margin-top: .25rem;
   margin-bottom: 1rem;
 
   .fa-star{

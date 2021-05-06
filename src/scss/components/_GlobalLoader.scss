@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba($bg-color, 0.85);
+  background-color: $bg-color;
   z-index: 1000;
   overflow: hidden;
 

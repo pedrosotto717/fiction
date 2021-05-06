@@ -5,12 +5,21 @@ $font-size: 16px;
 $font-main: Raleway;
 $font-second: Roboto;
 $transition-global: 0.3s ease 0s;
+$nav-height: 70px;
 
 // Theme
 $font-color: #fff;
+
+// blue mode
 $bg-color: #061830;
 $bg-color-two: #0d2032;
 $main-color: #080f28;
+
+// black mode
+$bg-color: #14161d;
+$bg-color-two: #1c2026;
+$main-color: #14161d;
+
 $primary-color: #1bb4dc;
 $fonts-path: "../assets/fonts";
 

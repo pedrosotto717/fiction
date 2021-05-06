@@ -8,6 +8,9 @@
 							transform .35s ease;
 	transform: translate3d(0, 0, 0);
 	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+
 
 	&:hover{
 		transform: translate3d(0, -10px, 0);
@@ -21,7 +24,7 @@
 		text-align: center;
 		display: block;
 		padding: 0.25rem;
-		color: #fff;
+		color: #f0f0f0;
 		font-size: 1rem;
 		font-family: $font-main;
 		font-weight: bold;

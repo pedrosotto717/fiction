@@ -51,14 +51,14 @@ const Header = new Component({
 
   componentDidMount: function () {
     getPopular()
-      .then(({ results }) => {
-        console.log(results)
-        return results[0]
+      .then(({ results = [] }) => {
+        return results[0] || null
       })
       .then(movie => {
-        this.setState({
-          data: movie
-        })
+        if (movie !== null)
+          this.setState({
+            data: movie
+          })
       })
 
     document.addEventListener('routeChange', () => {

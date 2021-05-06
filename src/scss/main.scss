@@ -9,7 +9,11 @@
 @import 'base/normalize';
 @import 'base/typo'; // whitOut Settings
 
+// -- vendor
+@import 'vendor/fontello';
+
 // -- Components
+@import 'components/App';
 @import 'components/btn';
 @import 'components/NavBar';
 @import 'components/Header';
@@ -20,9 +24,10 @@
 @import 'components/GlobalLoader';
 @import 'components/InternalLoader';
 @import 'components/BannerThirdMovie';
+@import 'components/TmdbLogo';
+@import 'components/NotFound';
+@import 'components/Error';
+@import 'components/FormSearch';
 
 // -- Layout
 @import 'layout/all';
-
-// -- Views
-// @import 'views/home'

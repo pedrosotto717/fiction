@@ -1,7 +1,8 @@
 import MovieCard from './MovieCard.js'
 import InfiniteCarousel from '../helpers/InfiniteCarousel.js'
+import Router from '../prottoDom/Router.js'
 
-function MoviesCarousel({ name, getMovies, timerCarousel, title }) {
+function MoviesCarousel({ name, getMovies, timerCarousel, title, customClass = "" }) {
   return {
     name,
 
@@ -13,8 +14,8 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title }) {
 
     template: function () {
       return (
-        `<section class="carousel container">
-
+        `<section class="carousel container ${customClass}">
+          
           <div class="carousel__header">
             <h3 class="carousel__title">
               ${title}
@@ -50,10 +51,13 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title }) {
       this.setState({ loading: true })
       const moviesData = await getMovies()
 
-      if (!moviesData.results)
+      if (Array.isArray(moviesData.results) === false)
         return false
 
-      this.setState({ movies: moviesData.results || new Array(10), loading: false })
+      this.setState({
+        movies: Array.isArray(moviesData.results) ? moviesData.results : new Array(10),
+        loading: false
+      })
 
       const carouselLastMovies = new InfiniteCarousel({
         container: `${this.selector} .movies-carousel`,
@@ -70,7 +74,10 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title }) {
     },
 
     componentDidUpdate: function () {
-      this.state.carousel.updatingCarousel()
+      if (Router.is() === null) return false
+
+      if (this.state.carousel)
+        this.state.carousel.updatingCarousel()
     }
   }
 }

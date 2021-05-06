@@ -1,5 +1,6 @@
 body{
 	background: $bg-color;
+	min-height: 100vh;
 
 	@include mq_next(xxl){
 		font-size: 17px;

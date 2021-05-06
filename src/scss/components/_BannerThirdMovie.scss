@@ -23,7 +23,8 @@ $bg-overlay: #000;
     $bg-overlay var(--overlay-size),
     rgba($bg-overlay, .5),
     transparent);
-  
+
+
   &::after{
     content: "";
     display: block;
@@ -37,7 +38,7 @@ $bg-overlay: #000;
     background-position: var(--move-x) center;
     background-repeat: no-repeat;
     z-index: -1;
-    filter: blur(1px);
+    filter: blur(.57px);
   }
 
   &__header{
@@ -51,8 +52,9 @@ $bg-overlay: #000;
     font-family: $font-main;
     color: #fff;
     font-weight: normal;
-    transition: all .75s ease-in-out;
-    transform: scale(0.1);
+    transition: transform 1.15s ease-in-out,
+                opacity 1.15s ease .15s;
+    transform: translateY(-50%) scale(0.15);
     opacity: 0;
   }
 
@@ -63,8 +65,8 @@ $bg-overlay: #000;
     text-align: center;
     line-height: 1.75;
     color: #f0f0f0;
-    transition: all 1.2s ease-in-out .3s;
-    transform: translate3d(0, 360px, 0);
+    transition: transform 1.85s ease-out 0s;
+    transform: translateY(360px);
   }
 
   &__year{
@@ -73,19 +75,18 @@ $bg-overlay: #000;
     position: absolute;
     right: 0;
     top: 0;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 10%;
-    
+
     font-family: $font-second;
     color: transparent;
     font-size: var(--font-size-year);
 
-  
-    filter:  drop-shadow(-4px -4px 0 #fff) brightness(.85);
-    
+    filter: drop-shadow(-4px -4px 0 #fff) brightness(.815);
+
     background: var(--bg-banner-third-movie);
     background-size: cover;
     background-position: var(--move-x) center;
@@ -110,7 +111,7 @@ $bg-overlay: #000;
     box-shadow: shadow(3px, #fff);
     transform: translate3d(0,0,0);
     opacity: 0;
-    
+
     &:hover{
       box-shadow: shadow(3px, transparent);
       transform: translate3d(0, 3px, 0);
@@ -129,26 +130,31 @@ $bg-overlay: #000;
 
   &.animate{
     .banner-third-movie{
+
       &__title{
-        transform: scale(1);
+        transform: none;
         opacity: 1;
       }
 
       &__overview{
-        transform: translate3d(0, 0, 0);
+        transform: translateY(0);
       }
 
       &__btn{
-        animation: downAnimation 1.65s ease-in-out 0s;
+        animation: downAnimation 1.85s ease-out 0s;
         opacity: 1;
       }
 
       &__year{
-        transition: filter 1s ease 1.35s;
+        transition: filter .5s ease-out 2s;
         filter:  drop-shadow(4px 4px 0 #fff) brightness(1.1);
       }
-      
+
     }
+  }
+
+  @include mq(lg){
+    &__title{ font-size: 2rem; }
   }
 
   @include mq(960px){

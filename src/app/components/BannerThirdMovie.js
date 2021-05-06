@@ -17,11 +17,11 @@ const bannerThirdMovie = new Component({
       `<div class="banner-third-movie container" style="--bg-banner-third-movie: ${url};">
         ${this.state.movie.title
         ? `<div class="banner-third-movie__header">
-           
+
             <h3 class="banner-third-movie__title">${this.state.movie.title}</h3>
-            
+
             <p class="banner-third-movie__overview">${cutText(this.state.movie.overview, 120)}</p>
-            
+
             <a class="btn banner-third-movie__btn" href="#/movie/${this.state.movie.id}">
               View more
             </a>
@@ -36,10 +36,18 @@ const bannerThirdMovie = new Component({
 
   componentDidMount: async function () {
     const { results = [] } = await getPopular()
+
+    console.log(results)
+    if(results.length === 0)
+      return false
+
     this.setState({ movie: results[1] })
 
     const callbackAnimation = (ev) => {
       const $element = document.querySelector('.banner-third-movie')
+
+      if($element === null) return false
+
       if ($element.getBoundingClientRect().top < (innerHeight * 0.85)) {
         $element.classList.add('animate')
       }

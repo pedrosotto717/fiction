@@ -57,7 +57,6 @@ export default (function() {
   }
 
   Component.prototype.render = function(props = {}, id_target = 'unique') {
-    console.log(this.nodesCollection.size, this.config.key)
     if (this.nodesCollection.size === 0) {
       executeCallback.call(this, this.config.componentWillMount)
       setTimeout(() => executeCallback.call(this, this.config.componentDidMount), 100)

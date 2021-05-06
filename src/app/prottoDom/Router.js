@@ -32,12 +32,13 @@ export default (() => {
   const resolve = (path) => {
     currentRoute = matchPath(path)
 
+    console.log('RouteChange')
+    document.dispatchEvent(routeChangeEvent)
+
     if (currentRoute === null) { // return
-      console.warn('404 NotFound')
-      return false
+      return subscriber({ args: {}, handler: currentRoute }) || null
     }
 
-    document.dispatchEvent(routeChangeEvent)
     return subscriber(currentRoute) || null
   }
 
@@ -67,15 +68,22 @@ export default (() => {
     return mathRoute && { ...mathRoute, args: urlParametersObj }
   }
 
-  const dispatch = () => currentRoute
+  const dispatch = () => currentRoute;
+
+  const is = (route = '') => {
+    if(currentRoute)
+      return currentRoute.name === route
+    return null
+  }
 
   const subscribe = (_subscriber) => {
-    subscriber = _subscriber
-  }
+      subscriber = _subscriber
+    }
   return {
     load,
     init,
     subscribe,
-    dispatch
+    dispatch,
+    is
   }
 })();

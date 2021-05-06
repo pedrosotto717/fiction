@@ -1,13 +1,61 @@
-footer{
+.main-footer{
 	display: flex;
-	align-items: flex-end;
-	min-height: 30vh;
+	flex-direction: column;
+	align-items: center;	
 	background-color: $main-color;
-	flex-wrap: wrap;
+	font-family: $font-second;
+	width: 100%;
+	contain: content;
 
-	p{
-		width: 100%;
+	&__title-logo{
 		display: block;
-		color: #ccc;
+		padding: 1rem 0;
+		width: 100%;
+		text-align: center;
+		
+		.fiction{
+			display: inline-flex;
+			padding-bottom: .5rem;
+			border-bottom: 2px solid $primary-color;
+		}
+	}
+
+	&__personal-data{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		font-size: 17px;
+		text-transform: capitalize;
+		margin-bottom: .5rem;
+		font-weight: normal;
+
+		&:hover{
+			color: $primary-color;
+		}
+	}
+
+	& .credits{
+		display: flex;
+		padding: 1rem 0;
+		position: relative;
+
+		.tmdb-logo{
+			padding: 0 .75rem;
+		}
+
+		p{
+			line-height: 1.25;
+			font-size: 0.9rem;
+			font-weight: lighter;
+			color: rgba(#fff, .85);
+		}
+	}
+
+	@include mq_next(md){
+		&__personal-data{
+			flex-direction: row;
+			justify-content: space-around;
+		}
 	}
 }

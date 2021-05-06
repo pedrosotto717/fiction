@@ -6,7 +6,8 @@ const CarouselPopularMovies = new Component(MoviesCarousel({
   name: 'CarouselPopularMovies',
   title: 'The Most Popular',
   getMovies: getPopular,
-  timerCarousel: 5000
+  customClass: 'popular-movies',
+  timerCarousel: 8000
 }));
 
 export default CarouselPopularMovies

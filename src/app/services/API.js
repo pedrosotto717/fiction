@@ -9,6 +9,10 @@ export async function getTrendingLastDay(page = 1) {
   return await request(`${provider.GET_TRENDING}?page=${page}`, 'trendingLastDay')
 }
 
+export async function getUpcoming(page = 1) {
+  return await request(`${provider.GET_UPCOMING}?page=${page}`, 'upcomingMovies')
+}
+
 export function makePoster(relativeUrl) {
   return provider.IMAGE_URL + relativeUrl
 }
@@ -26,4 +30,8 @@ export async function getGenres() {
         })
     }, 1000)
   })
+}
+
+export function tmdbLogo() {
+  return provider.TMDB_LOGO
 }

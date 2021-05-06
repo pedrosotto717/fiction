@@ -83,9 +83,10 @@ const MovieGenres = new Component({
     try {
       const genres = await getGenres()
 
-      if (genres)
-        this.setState({ genres, loading: false })
+      if (genres === undefined)
+        return false
 
+      this.setState({ genres, loading: false })
       const bgGenres = storage.get('bg-genres-list')
 
       if (bgGenres) {
@@ -142,6 +143,8 @@ const MovieGenres = new Component({
         .find(bg => bg !== ""
           && bg !== results[0].backdrop_path
           && bg !== results[1].backdrop_path))
+
+    this.pushContext({ loading: false })
   }
 });
 

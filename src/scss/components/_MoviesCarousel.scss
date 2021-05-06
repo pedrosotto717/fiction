@@ -2,23 +2,26 @@ $padding-top: 10px;
 
 .carousel{
 	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+	margin-bottom: 5rem;
 	width: 100%;
 	height: auto;
-	padding: 0.5rem;
+	padding: .5rem;
 	overflow: hidden;
 
 	.carousel__header{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding: .5rem;
 	}
 
 	&__title{
 		font-family: $font-main;
-		font-size: 2rem;
+		font-size: 1.75rem;
 		font-weight: normal;
 		display: inline-flex;
+		line-height: 1.25;
+		text-transform: capitalize;
 	}
 
 	&__link-more{
@@ -62,6 +65,49 @@ $padding-top: 10px;
 	min-height: var(--movie-card-height);
 	max-height: calc(var(--movie-card-height)*1.25);
 	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+}
+
+.carousel.popular-movies{
+	margin-top: -10vh;
+	overflow: visible;
+	z-index: 10;
+	position: relative;
+
+	.movies-carousel-container{
+		max-height: calc(var(--movie-card-height)*1.3);
+	}
+
+	.movies-carousel__item{
+		transform: translate3d(0, 0, 0);
+		opacity: .9;
+		transition: transform .35s ease-out 0 !important;
+
+		&:hover{
+			opacity: 1;
+		}
+	}
+
+	.movies-carousel__item:nth-child(even){
+		transform: translate3d(0, -10px, 0);
+	}
+	
+	.carousel__header{
+		display: none;
+	}
+
+	@media screen and (min-height: 760px) and (min-width: 1200px){
+		margin-top: -20vh;
+	}
+
+	@include mq(sm){
+		margin-top: -5vh;
+	}
+
+	@media screen and (max-height: 520px) and (max-width: 720px){
+		margin-top: -12vh;
+	}
 }
 
 .movies-carousel{
@@ -73,6 +119,11 @@ $padding-top: 10px;
 	padding: 0.25rem .1rem;
 	padding-top: $padding-top;
 	z-index: 8;
+	user-select: none;
+
+	&__item{
+		will-change: margin-left;
+	}
 }
 
 .controls-carousel{
@@ -97,8 +148,8 @@ $padding-top: 10px;
 
 	span.fa{
 		position: relative;
-		font-size: 1.25rem;
-		color: rgba(#fff, 0.85);
+		font-size: 1.5rem;
+		color: #fff;
 		line-height: 0;
 		z-index: -1;
 	}
