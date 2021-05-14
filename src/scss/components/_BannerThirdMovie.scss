@@ -10,7 +10,7 @@ $bg-overlay: #000;
 
   margin: 2rem 0;
   height: 60vh;
-  min-height: 420px;
+  min-height: 460px;
   max-height: 720px;
   width: 100%;
   display: flex;
@@ -48,10 +48,10 @@ $bg-overlay: #000;
   }
 
   &__title{
-    font-size: 3rem;
+    font-size: 2.9rem;
     font-family: $font-main;
     color: #fff;
-    font-weight: normal;
+    font-weight: bold;
     transition: transform 1.15s ease-in-out,
                 opacity 1.15s ease .15s;
     transform: translateY(-50%) scale(0.15);
@@ -67,6 +67,8 @@ $bg-overlay: #000;
     color: #f0f0f0;
     transition: transform 1.85s ease-out 0s;
     transform: translateY(360px);
+    letter-spacing: .5px;
+    word-spacing: 1px;
   }
 
   &__year{
@@ -81,7 +83,7 @@ $bg-overlay: #000;
     justify-content: center;
     padding-left: 10%;
 
-    font-family: $font-second;
+    font-family: $font-main;
     color: transparent;
     font-size: var(--font-size-year);
 
@@ -151,6 +153,10 @@ $bg-overlay: #000;
       }
 
     }
+  }
+
+  @include mq_next(xxl){
+    &__title{ font-size: 3rem; }
   }
 
   @include mq(lg){

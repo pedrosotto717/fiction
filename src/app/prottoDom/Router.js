@@ -2,6 +2,7 @@ export default (() => {
   let routes = null,
     currentRoute = {},
     subscriber = (obj) => obj,
+    previousPath = '',
     routeChangeEvent = new CustomEvent('routeChange')
 
   const load = (_routes) => routes = _routes
@@ -9,8 +10,12 @@ export default (() => {
   const init = (executeHandler = false) => {
     const routing = () => {
       const path = cleanUrl(location.hash.substring(1))
-      resolve(path)
+      console.log(previousPath, path)
 
+      if (path === previousPath) return false
+
+      resolve(path)
+      previousPath = path
       if (executeHandler === true) currentRoute.handler(currentRoute.urlParams)
     }
 
@@ -71,17 +76,18 @@ export default (() => {
   const dispatch = () => currentRoute;
 
   const is = (route = '') => {
-    if(currentRoute)
+    if (currentRoute)
       return currentRoute.name === route
     return null
   }
 
   const subscribe = (_subscriber) => {
-      subscriber = _subscriber
-    }
+    subscriber = _subscriber
+  }
   return {
     load,
     init,
+    previousPath,
     subscribe,
     dispatch,
     is

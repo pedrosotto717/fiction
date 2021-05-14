@@ -1,0 +1,36 @@
+.btn-to-top {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  margin: 0;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $primary-color;
+  z-index: 199;
+	transition: all .35s ease;
+  visibility: hidden;
+  opacity: 0;
+  	font-size: 1.25rem;
+  	color: #fff;
+
+  &::before{
+    @extend .icon-f;
+  }
+
+  @extend .icon-up-thin;
+
+  &:hover{
+	  background-color: darken($primary-color, 5);
+  }
+
+  &.is-show{
+  	opacity: 1;
+  	visibility: visible;
+  }
+}

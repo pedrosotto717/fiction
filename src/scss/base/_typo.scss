@@ -1,11 +1,4 @@
 @font-face {
-  font-family: 'Raleway';
-  src: url($fonts-path + "/Raleway-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Roboto';
   src: url($fonts-path + "/Roboto-Regular.ttf");
   font-weight: normal;
@@ -13,8 +6,15 @@
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Roboto Bold';
   src: url($fonts-path + "/Roboto-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Light';
+  src: url($fonts-path + "/Roboto-Light.ttf");
   font-weight: bold;
   font-style: normal;
 }

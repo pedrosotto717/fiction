@@ -2,8 +2,9 @@
 // globals
 $max-width: 1800px;
 $font-size: 16px;
-$font-main: Raleway;
-$font-second: Roboto;
+$font-main: 'Roboto';
+$font-main-b: 'Roboto Bold';
+$font-second: 'Roboto Light';
 $transition-global: 0.3s ease 0s;
 $nav-height: 70px;
 
@@ -20,7 +21,7 @@ $bg-color: #14161d;
 $bg-color-two: #1c2026;
 $main-color: #14161d;
 
-$primary-color: #1bb4dc;
+$primary-color: #17b7da;
 $fonts-path: "../assets/fonts";
 
 :root{

@@ -27,7 +27,7 @@ const Header = new Component({
 
                 <div class="header__movie-props">
                   <span class="header__vote_average">
-                    <span class="fa fa-star"></span>
+                    <span class="icon-star icon"></span>
                     ${this.state.data.vote_average}
                   </span>
 
@@ -38,7 +38,7 @@ const Header = new Component({
                   ${cutText(this.state.data.overview)}
                 </p>
                 <button class="btn video header__video-btn" data-movie-id="${this.state.data.id}">
-                  <span class="fa fa-caret-right"></span>
+                  <span class="icon-play icon"></span>
                   Watch Trailer
                 </button>
               </div>

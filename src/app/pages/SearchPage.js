@@ -9,10 +9,10 @@ const SearchPage = new Component({
   template: function (props = {}) {
     setTitle("Search")
     return (
-      `<div class="container">
+      `<main class="container">
         <h1>This Is the SearchPage</h1>
         ${MovieList.render()}
-      </div>`
+      </main>`
     )
   }
 })

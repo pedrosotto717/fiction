@@ -10,7 +10,7 @@
   font-style: normal;
 }
 
-.icon{
+.icon-f{
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
@@ -30,7 +30,7 @@
 }
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
-  @extend .icon;
+  @extend .icon-f;
 }
 
 .icon-star:before { content: '\e800'; }

@@ -1,12 +1,13 @@
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
-import {AppContext} from '../states/AppContext.js'
+import { AppContext } from '../states/AppContext.js'
 
 const loadMovie = async function () {
-  const { args } = Router.dispatch()
+  const { args } = Router.dispatch(),
+    [_, setContext] = AppContext.provider()
   setTimeout(() => {
     this.setState({ movieId: args.id, loader: false });
-    this.pushContext({loading: false})
+    setContext({ loading: false })
   }, 1000)
 }
 
@@ -15,22 +16,20 @@ const loadMovie = async function () {
   y cuando los seleccionen  va a cargar el url del trailer
 **/
 const MoviePage = new Component({
-  name: "Movie",
+  name: "MoviePage",
 
   state: {
     loader: true,
     movieId: null
   },
 
-  useContext: AppContext.provider(),
-
   template: function (props = {}) {
     return (
-      `<div id="app" class="container">
+      `<main class="container">
         ${this.state.loader === true
         ? ''
         : `<h1>Bienvenidos a la Movie : ${this.state.movieId}</h1>`}
-      </div>`
+      </main>`
     )
   },
 

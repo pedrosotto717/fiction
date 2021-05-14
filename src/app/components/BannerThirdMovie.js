@@ -23,7 +23,7 @@ const bannerThirdMovie = new Component({
             <p class="banner-third-movie__overview">${cutText(this.state.movie.overview, 120)}</p>
 
             <a class="btn banner-third-movie__btn" href="#/movie/${this.state.movie.id}">
-              View more
+              View more <span class="icon icon-right-open"></span>
             </a>
 
           </div>

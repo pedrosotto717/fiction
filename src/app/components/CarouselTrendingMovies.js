@@ -6,7 +6,8 @@ const CarouselTrendingMovies = new Component(MoviesCarousel({
   name: 'CarouselTrendingMovies',
   title: 'Trending Today',
   getMovies: getTrendingLastDay,
-  timerCarousel: 0
+  timerCarousel: 0,
+  linkMore: 'trending'
 }));
 
 export default CarouselTrendingMovies

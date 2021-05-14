@@ -1,7 +1,7 @@
 import { makePoster } from '../services/API.js'
-import {cutText} from '../helpers/cutText_dan.js'
+import { cutText } from '../helpers/cutText_dan.js'
 
-export default function ({ className = '', index = 0, data }) {
+export default function MoviesCard({ className = '', index = 0, data }) {
   let { release_date } = data
   release_date = release_date.split('-')[0]
   return (

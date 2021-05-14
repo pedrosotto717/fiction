@@ -2,7 +2,7 @@ import MovieCard from './MovieCard.js'
 import InfiniteCarousel from '../helpers/InfiniteCarousel.js'
 import Router from '../prottoDom/Router.js'
 
-function MoviesCarousel({ name, getMovies, timerCarousel, title, customClass = "" }) {
+function MoviesCarousel({ name, getMovies, timerCarousel, title, linkMore, customClass = "" }) {
   return {
     name,
 
@@ -15,17 +15,17 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title, customClass = "
     template: function () {
       return (
         `<section class="carousel container ${customClass}">
-          
+
           <div class="carousel__header">
             <h3 class="carousel__title">
               ${title}
             </h3>
-            <a href="#/movies" class="carousel__link-more btn">Explore More</a>
+            <a href="#/movies/${linkMore}" class="carousel__link-more btn">Explore More</a>
           </div>
 
           <div class="movies-carousel-container">
             <button class="controls-carousel control-carousel-prev">
-              <span class="fa fa-chevron-left"></span>
+              <span class="icon-left-open-big icon"></span>
             </button>
 
             <div class="movies-carousel">
@@ -39,7 +39,7 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title, customClass = "
             </div>
 
             <button class="controls-carousel control-carousel-next">
-              <span class="fa fa-chevron-right"></span>
+              <span class="icon-right-open-big icon"></span>
             </button>
 
           </div>

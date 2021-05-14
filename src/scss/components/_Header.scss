@@ -72,8 +72,9 @@ header.header-container {
   }
 
   &__title {
-    font-size: 2.5rem;
-    font-family: inherit;
+    font-size: 2.75rem;
+    font-family: $font-main-b;
+    font-weight: bold;
     line-height: 1.25;
   }
 
@@ -84,6 +85,7 @@ header.header-container {
     line-height: 1.75;
     color: rgba(#fff, .8);
     margin-bottom: 1rem;
+    letter-spacing: .5px;
     word-spacing: 1px;
   }
 
@@ -101,12 +103,12 @@ header.header-container {
     box-shadow: shadow-blur(6px, #000);
     background-color: rgba(#000, .85);
 
-    .fa{
+    .icon{
       display: inline-flex;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       line-height: 0;
       padding: 0;
-      letter-spacing: 0.5rem;
+      letter-spacing: 0.45rem;
     }
 
     &:hover{
@@ -118,6 +120,7 @@ header.header-container {
 
   @include mq_next(xxl){
     padding: 2rem 3.75rem;
+    &__title{ font-size: 3rem; }
   }
 
   @include mq(lg){
@@ -141,7 +144,7 @@ header.header-container {
   align-items: center;
   margin-bottom: 1rem;
 
-  .fa-star{
+  .icon{
   	color: rgba(gold, .9);
   }
 

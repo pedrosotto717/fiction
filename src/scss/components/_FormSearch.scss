@@ -1,28 +1,14 @@
-#show-form{
-	background-color: rgba(#000, .2);
-	width: 2.5rem;
-	height: 2.5rem;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.1rem;
-	border-radius: 50%;
-	color: $primary-color;
-}
-
 .form-search{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 100vw;
-	height: $nav-height;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: rgba(#000, .25);
-  z-index: 220;
-	background-color: $bg-color-two;
-	clip-path: circle(1rem at center 95%);
+	width: auto;
+	height: 60%;
+	position: relative;
+	border-radius: 2px;
+	background-color: #fafafa;
+	transition: all .3s ease;
+	flex: 1 1 100%;
 
 	&__input{
 		display: flex;
@@ -30,35 +16,44 @@
 		height: 100%;
 		background-color: transparent;
 
-		input[type]{
+		input[type="search"]{
+			font-family: $font-main;
 			font-size: 1rem;
 			display: block;
-			padding: .25rem;
-			width: 100%;
-			color: #f0f0f0;
+			padding: .5rem 1rem;
+			color: #000;
 			background-color: transparent;
+			display: block;
+			width: 100%;
 		}
 	}
 
-	.btn-form{
-		width: 50px;
-		height: 100%;
-		color: #f0f0f0;
-		display: flex;
+	.btn-search{
+		padding: .55rem;
+		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		font-size: 1rem;
-		font-weight: normal;
-		background: transparent;
-		border: none;
-		outline: none;
-		padding: .5rem;
+		font-size: 1.25rem;
+		margin: 0;
+		color: #000;
+		background-color: transparent;
+		transition: all .3s ease;
+		height: 100%;
+		background-color: rgba($primary-color, .7);
+
+		&::before{
+			@extend .icon-f;
+		}
+
+		@extend .icon-search-2;
+
+		&:hover{
+			background-color: rgba($primary-color, .9);
+		}
 	}
 
-	.btn-form[type="reset"]{
-		width: 55px;
-		font-size: 1rem;
-		background-color: rgba(#000,.1);
+	@include mq(md){
+		width: auto;
 	}
 }
 

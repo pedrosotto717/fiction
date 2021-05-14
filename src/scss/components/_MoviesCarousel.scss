@@ -1,8 +1,8 @@
 $padding-top: 10px;
 
 .carousel{
-	margin-top: 0.5rem;
-	margin-bottom: 5rem;
+	margin-top: 4.5rem;
+	margin-bottom: 4.5rem;
 	width: 100%;
 	height: auto;
 	padding: .5rem;
@@ -17,7 +17,7 @@ $padding-top: 10px;
 
 	&__title{
 		font-family: $font-main;
-		font-size: 1.75rem;
+		font-size: 2rem;
 		font-weight: normal;
 		display: inline-flex;
 		line-height: 1.25;
@@ -82,7 +82,6 @@ $padding-top: 10px;
 	.movies-carousel__item{
 		transform: translate3d(0, 0, 0);
 		opacity: .9;
-		transition: transform .35s ease-out 0 !important;
 
 		&:hover{
 			opacity: 1;
@@ -92,7 +91,7 @@ $padding-top: 10px;
 	.movies-carousel__item:nth-child(even){
 		transform: translate3d(0, -10px, 0);
 	}
-	
+
 	.carousel__header{
 		display: none;
 	}
@@ -141,14 +140,15 @@ $padding-top: 10px;
 	transition: all .25s linear;
 
 	&:hover{
-		span.fa{
+		.icon{
 			color: rgba(#fff, 1);
 		}
 	}
 
-	span.fa{
+	.icon{
 		position: relative;
 		font-size: 1.5rem;
+		font-weight: bold;
 		color: #fff;
 		line-height: 0;
 		z-index: -1;

@@ -2,7 +2,7 @@ import storage from './storage.js';
 
 const request = async (url, keyStorage = '') => {
   try {
-    let data = storage.get(keyStorage)
+    let data = storage.get(keyStorage) || false
     if (data !== false)
       return data
 
