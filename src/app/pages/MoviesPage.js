@@ -1,27 +1,23 @@
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
-import { mapExploreMovies } from '../mapExploreMovies.js'
 import { AppContext } from '../states/AppContext.js'
+import { goToNotFound } from '../components/NotFound.js'
+import { mapExploreMovies } from '../mapExploreMovies.js'
 import MoviesResults from '../components/MoviesResults.js'
 import LoadMore from '../components/LoadMore.js'
 
-const loadMovies = async function () {
+const virifyLoad = async function () {
+  const [_, setContext] = AppContext.provider(),
+    { args } = Router.dispatch()
+
   if (!Router.is('Movies')) return false
-  const [_, setContext] = AppContext.provider()
+
   this.setState({ loading: false });
+  if (!mapExploreMovies.has(args.explore) && Router.is('Movies'))
+    return goToNotFound()
 
-  setTimeout(() => {
-    console.log('in Movies')
-
-    const { args } = Router.dispatch()
-
-    if (!mapExploreMovies.has(args.explore) && Router.is('Movies')) {
-      console.log("in STEP")
-      return setContext({ notFound: true })
-    }
-
-    return setContext({ loading: false, notFound: false })
-  }, 10)
+  setContext({ loading: false })
+  return args.explore
 }
 
 const MoviesPage = new Component({
@@ -32,7 +28,6 @@ const MoviesPage = new Component({
   },
 
   template: function (props = {}) {
-    console.log("____RENDERING____")
     return (
       `<main class="container movies-page">
         ${this.state.loading === true
@@ -53,11 +48,16 @@ const MoviesPage = new Component({
   },
 
   componentDidMount: async function () {
-    await loadMovies.call(this)
+    const keyMap = virifyLoad.call(this)
+    if (typeof keyMap !== "string") return false
+
+    const dataMap = mapExploreMovies.get(keyMap)
+    console.log(dataMap)
+
   },
 
   componentWillUpdate: async function () {
-    await loadMovies.call(this)
+    virifyLoad.call(this)
   }
 })
 

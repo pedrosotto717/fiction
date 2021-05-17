@@ -2,6 +2,7 @@ import Component from "../prottoDom/Component.js";
 import { getPopular } from "../services/API.js";
 import { cutText } from "../helpers/cutText_dan.js";
 import { makeBackGround } from "../helpers/makeBackGround.js";
+import { setVarCss } from "../helpers/setVarCss.js";
 
 const bannerThirdMovie = new Component({
   name: "bannerThirdMovie",
@@ -11,10 +12,8 @@ const bannerThirdMovie = new Component({
   },
 
   template: function (props) {
-    const url = makeBackGround(this.state.movie ? this.state.movie.backdrop_path : '')
-
     return (
-      `<div class="banner-third-movie container" style="--bg-banner-third-movie: ${url};">
+      `<div class="banner-third-movie container">
         ${this.state.movie.title
         ? `<div class="banner-third-movie__header">
 
@@ -37,8 +36,7 @@ const bannerThirdMovie = new Component({
   componentDidMount: async function () {
     const { results = [] } = await getPopular()
 
-    console.log(results)
-    if(results.length === 0)
+    if (results.length === 0)
       return false
 
     this.setState({ movie: results[1] })
@@ -46,7 +44,7 @@ const bannerThirdMovie = new Component({
     const callbackAnimation = (ev) => {
       const $element = document.querySelector('.banner-third-movie')
 
-      if($element === null) return false
+      if ($element === null) return false
 
       if ($element.getBoundingClientRect().top < (innerHeight * 0.85)) {
         $element.classList.add('animate')
@@ -54,6 +52,12 @@ const bannerThirdMovie = new Component({
     }
 
     addEventListener('scroll', callbackAnimation)
+  },
+
+  componentDidUpdate: function () {
+    if (!this.state.movie) return false
+    const url = makeBackGround(this.state.movie.backdrop_path)
+    setVarCss('.banner-third-movie', '--bg-banner-third-movie', url)
   }
 })
 

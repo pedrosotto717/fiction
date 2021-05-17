@@ -17,7 +17,7 @@ const Navbar = new Component({
 
           <form class="form-search">
             <div class="input form-search__input">
-              <input type="search" name="search" id="search">
+              <input type="search" name="search" id="search" placeholder="Search Movie">
             </div>
             <button type="submit" class="btn btn-search">
             </button>

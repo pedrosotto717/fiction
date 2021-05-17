@@ -27,7 +27,7 @@ export default (() => {
         return true
       }
     } catch (error) {
-      console.log("Error")
+      console.error("Error")
     }
     return false
   };

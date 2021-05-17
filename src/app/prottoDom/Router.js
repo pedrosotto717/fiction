@@ -10,8 +10,6 @@ export default (() => {
   const init = (executeHandler = false) => {
     const routing = () => {
       const path = cleanUrl(location.hash.substring(1))
-      console.log(previousPath, path)
-
       if (path === previousPath) return false
 
       resolve(path)
