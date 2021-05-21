@@ -1,21 +1,3 @@
-// #/search?q=movie-title
-// -> para capturar el query_string debo:
-/* escuchar el evento submit de la barra de busqueda y en dicho evento
-   me encargaria de realizar la busqueda y setear las
-   vaiables correspondientes
-   setearia el MoviesContext con el respectivo handler*/
-// #/search/movie-title
-
-/*
-d.addEventListener("submit", e=> {
-  e.preventDefault()
-  if(!e.target.matches(".search-form")) return false;
-
-  const query = d.querySelector("form.search-form").search.value;
-  location.hash = `#/search?q=${query}`
-})
-*/
-
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
 import { goToNotFound } from '../components/NotFound.js'
@@ -31,10 +13,10 @@ async function load() {
   if (!Router.is('Genres')) return false
 
   const { args } = Router.dispatch()
+  setTitle(`Fiction | ${args.name}`)
 
   if (typeof parseInt(args.id) !== "number" || args.name == false) return goToNotFound()
 
-  setTitle(`Fiction | ${args.name}`)
 
   const [movies = {}, genres = []] = await Promise.all([
     getByGenre(parseInt(args.id)),
@@ -79,7 +61,6 @@ const GenresPage = new Component({
     console.log(this.state)
     return (
       `<main class="container genres-page">
-      Search
         ${this.state.loading === true
         ? Loader()
         : `
@@ -111,14 +92,30 @@ const GenresPage = new Component({
 
   componentDidMount: async function () {
     window.scrollTo(0, 0)
-    // load.call(this)
-    stopLoader()
+    load.call(this)
   },
 
   componentWillUpdate: async function () {
-    // load.call(this)
-
+    load.call(this)
   }
 })
 
 export default GenresPage
+
+
+// "#/genres/:id/:name"
+
+// carousel: action | animation | fiction | horror
+
+// Genre: action
+
+// MoviesResults.render()
+// card | card | card
+// LoadMore.render()
+
+// setMoviesContext({
+//     page: parseInt(movies.page),
+//     movieList: movies.results,
+//     total_pages: parseInt(movies.total_pages),
+//     moviesProvider: dataMap.handler
+//   })

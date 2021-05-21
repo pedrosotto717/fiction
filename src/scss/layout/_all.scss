@@ -2,6 +2,10 @@ html{
 	scroll-behavior: smooth;
 }
 
+title{
+	text-transform: capitalize;
+}
+
 body{
 	background: $bg-color;
 	min-height: 100vh;
@@ -37,6 +41,15 @@ img{
 
 .without-transition{
 	transition: all 0s linear 0s;
+}
+
+.hidden{
+	visibility: hidden;
+	opacity: 0;
+}
+
+.hidden-d{
+	display: none;
 }
 
 .container{

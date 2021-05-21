@@ -6,6 +6,7 @@ const API_KEY = '423aa5b8f08553dd8806cf2e8025a1bd',
   GET_POPULAR = `${API_URL}/popular.json`,
   GET_TRENDING = `${API_URL}/trendingLastDay.json`,
   GET_UPCOMING = `${API_URL}/upcoming.json`,
+  GET_BY_GENRE = `${API_URL}/genre-animation.json`,
   GENRES = `${API_URL}/genres.json`,
   TMDB_LOGO = `${IMAGE_URL}/tmdb.svg`
 
@@ -16,5 +17,6 @@ export default {
   GET_TRENDING,
   GET_UPCOMING,
   GENRES,
-  TMDB_LOGO
+  TMDB_LOGO,
+  GET_BY_GENRE
 }

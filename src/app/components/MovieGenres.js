@@ -56,7 +56,7 @@ const MovieGenres = new Component({
         ? ''
         : this.state.genres.map((genre) => `
             <li class="genres-list__item">
-              <a class="genres-list__link" data-genre-id="${genre.id}" href="#/genres/${genre.id}">
+              <a class="genres-list__link" data-genre-id="${genre.id}" href="#/genres/${genre.id}/${genre.name}">
                 ${genre.name}
               </a>
             </li>

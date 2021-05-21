@@ -68,7 +68,7 @@ const App = new Component({
       }
 
       this.setState({ mainComponent: { args, handler }, loading: false })
-      this.pushContext({ loading: false })
+      // this.pushContext({ loading: false })
     });
 
     const globalData = await Promise.all([

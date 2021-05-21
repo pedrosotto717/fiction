@@ -6,11 +6,17 @@ export async function getPopular(page = 1) {
 }
 
 export async function getTrendingLastDay(page = 1) {
-  return await request(`${provider.GET_TRENDING}?page=${page}`, 'trendingLastDay')
+  if (page === 2)
+    return await request(`${provider.API_URL}/trendingLastDay2.json`, page === 1 ? 'trendingLastDay' : '')
+  return await request(`${provider.GET_TRENDING}?page=${page}`, page === 1 ? 'trendingLastDay' : '')
 }
 
 export async function getUpcoming(page = 1) {
   return await request(`${provider.GET_UPCOMING}?page=${page}`, 'upcomingMovies')
+}
+
+export async function getByGenre(id, page = 1,) {
+  return await request(`${provider.GET_BY_GENRE}?page=${page}`)
 }
 
 export function makePoster(relativeUrl) {

@@ -1,63 +1,90 @@
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
-import { AppContext } from '../states/AppContext.js'
 import { goToNotFound } from '../components/NotFound.js'
 import { mapExploreMovies } from '../mapExploreMovies.js'
+import { MoviesContext } from '../states/MoviesContext.js'
+import { stopLoader } from '../helpers/stopLoader.js'
+import { setTitle } from '../helpers/title.js'
+import { putCommasToNumber } from '../helpers/putCommasToNumber_dan.js'
 import MoviesResults from '../components/MoviesResults.js'
 import LoadMore from '../components/LoadMore.js'
+import Loader from '../components/Loader.js';
 
-const virifyLoad = async function () {
-  const [_, setContext] = AppContext.provider(),
-    { args } = Router.dispatch()
-
-  if (!Router.is('Movies')) return false
+const verifyLoad = async function() {
+  const { args } = Router.dispatch()
+  setTitle(`Fiction | ${args.explore}`)
 
   this.setState({ loading: false });
   if (!mapExploreMovies.has(args.explore) && Router.is('Movies'))
     return goToNotFound()
 
-  setContext({ loading: false })
+  stopLoader()
   return args.explore
+}
+
+async function load() {
+  if (!Router.is('Movies')) return false
+
+  const keyMap = await verifyLoad.call(this)
+
+  if (typeof keyMap !== "string") return false
+
+  const dataMap = mapExploreMovies.get(keyMap),
+    movies = await dataMap.handler(),
+    [_, setMoviesContext] = MoviesContext.provider()
+
+  this.setState({
+    data: {
+      title: dataMap.title,
+      total_results: movies.total_results
+    }
+  })
+
+  setMoviesContext({
+    page: parseInt(movies.page),
+    movieList: movies.results,
+    total_pages: parseInt(movies.total_pages),
+    moviesProvider: dataMap.handler
+  })
 }
 
 const MoviesPage = new Component({
   name: "MoviesPage",
 
   state: {
-    loading: true
+    loading: true,
+    data: {
+      title: '',
+      total_results: 0
+    }
   },
 
-  template: function (props = {}) {
+  template: function(props = {}) {
     return (
       `<main class="container movies-page">
         ${this.state.loading === true
-        ? 'Loading ...'
-        : `<header class="movies-page">
-              <h2>Some</h2>
-              <p>100 results</p>
+        ? Loader()
+        : `<header class="movies-page__header">
+              <h2 class="movies-page__title">${this.state.data.title}</h2>
+              <p class="movies-page__total-results">${putCommasToNumber(this.state.data.total_results)} results</p>
             </header>
 
             <section class="movies-page__results">
               ${MoviesResults.render()}
             </section>
-
             ${LoadMore.render()}
           `}
       </main>`
     )
   },
 
-  componentDidMount: async function () {
-    const keyMap = virifyLoad.call(this)
-    if (typeof keyMap !== "string") return false
-
-    const dataMap = mapExploreMovies.get(keyMap)
-    console.log(dataMap)
-
+  componentDidMount: async function() {
+    window.scrollTo(0, 0)
+    load.call(this)
   },
 
-  componentWillUpdate: async function () {
-    virifyLoad.call(this)
+  componentWillUpdate: async function() {
+    load.call(this)
   }
 })
 

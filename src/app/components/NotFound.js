@@ -1,9 +1,12 @@
-import Component from "../prottoDom/Component.js";
+import Component from '../prottoDom/Component.js';
+import { stopLoader } from '../helpers/stopLoader.js'
+
 
 const NotFound = new Component({
   name: 'notFound',
 
-  template: function (props = {}) {
+  template: function(props = {}) {
+    stopLoader()
     return (
       `<div class="not-found--container">
         <div class="not-found">

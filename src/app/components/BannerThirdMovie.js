@@ -56,7 +56,9 @@ const bannerThirdMovie = new Component({
 
   componentDidUpdate: function () {
     if (!this.state.movie) return false
+      console.log('THIRD_MOVIE_BG')
     const url = makeBackGround(this.state.movie.backdrop_path)
+      console.log('THIRD_MOVIE_BG', url)
     setVarCss('.banner-third-movie', '--bg-banner-third-movie', url)
   }
 })
