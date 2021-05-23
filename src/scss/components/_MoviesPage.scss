@@ -1,0 +1,80 @@
+.movies-page{
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+
+  &__header{
+    margin-top: 1.75rem;
+    margin-bottom: 2.5rem;
+    padding: 0.5rem;
+  }
+
+  &__title{
+    color: #fff;
+    font-family: $font-main-b;
+    text-transform: capitalize;
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  &__total-results{
+    font-family: $font-main;
+    font-size: 1rem;
+    color: #e6e6e6;
+    padding: .5rem 0;
+  }
+}
+
+.movies-results{
+  min-height: 90vh;
+  --size-x: 80%;
+  --size-Y: minmax(var(--movie-card-height), auto);
+  --gap: 1rem;
+  
+  &__list{
+    display: grid;
+    grid-template-columns: var(--size-x);
+    grid-auto-rows: var(--size-Y);
+    gap: var(--gap);
+    justify-content: center;
+  }
+
+  &__card{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+
+    a{
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  // breakpoints
+
+  @include mq_next(400px){
+    --size-x: 65%;
+  }
+
+  @include mq_next(510px){
+    --size-x: repeat(auto-fill, var(--movie-card-width));
+    --gap: 1.5rem;
+  }
+
+  @include mq_next(sm){
+     --size-x: repeat(auto-fill, minmax(var(--movie-card-width), .425fr));
+     
+     &__list{
+       justify-content: space-evenly;
+     }
+  }
+  
+  @include mq_next(730px){
+    --gap: .5rem;
+    --size-x: repeat(auto-fit, var(--movie-card-width));  
+  }
+
+  @include mq_next(1260px){
+    --gap: .75rem;
+  }
+}

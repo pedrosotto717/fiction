@@ -13,11 +13,11 @@ Router.load([
   { name: 'Home', path: '/', handler: HomePage },
   { name: 'Movies', path: '/movies/:explore', handler: MoviesPage },
   { name: 'Genres', path: '/genres/:id/:name', handler: GenresPage },
+  { name: 'Search', path: '/search/:keyword', handler: SearchPage },
   { name: 'NotFound', path: '/not-found', handler: NotFound },
 
   //
   { name: 'Movie', path: '/movie/:id', handler: MoviePage },
-  { name: 'Search', path: '/search', handler: SearchPage },
 ])
 
 Router.init();

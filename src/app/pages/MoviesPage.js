@@ -9,8 +9,9 @@ import { putCommasToNumber } from '../helpers/putCommasToNumber_dan.js'
 import MoviesResults from '../components/MoviesResults.js'
 import LoadMore from '../components/LoadMore.js'
 import Loader from '../components/Loader.js';
+import { clearSlug } from '../helpers/clearSlug.js'
 
-const verifyLoad = async function() {
+const verifyLoad = async function () {
   const { args } = Router.dispatch()
   setTitle(`Fiction | ${args.explore}`)
 
@@ -59,31 +60,33 @@ const MoviesPage = new Component({
     }
   },
 
-  template: function(props = {}) {
+  template: function (props = {}) {
     return (
-      `<main class="container movies-page">
+      `<main class="container movies-p movies-page">
         ${this.state.loading === true
         ? Loader()
         : `<header class="movies-page__header">
-              <h2 class="movies-page__title">${this.state.data.title}</h2>
+              <h2 class="movies-page__title">${clearSlug(this.state.data.title)}</h2>
               <p class="movies-page__total-results">${putCommasToNumber(this.state.data.total_results)} results</p>
             </header>
 
-            <section class="movies-page__results">
+            <section class="movies-results">
               ${MoviesResults.render()}
             </section>
+
             ${LoadMore.render()}
           `}
       </main>`
     )
   },
 
-  componentDidMount: async function() {
+  componentDidMount: async function () {
     window.scrollTo(0, 0)
     load.call(this)
   },
 
-  componentWillUpdate: async function() {
+  componentWillUpdate: async function () {
+    window.scrollTo(0, 0)
     load.call(this)
   }
 })

@@ -5,6 +5,7 @@ import { AppContext } from '../states/AppContext.js';
 import Router from '../prottoDom/Router.js';
 import { setVarCss } from '../helpers/setVarCss.js';
 import { makeBackGround } from '../helpers/makeBackGround.js';
+import { stringToSlug } from '../helpers/stringToSlug.js';
 
 async function setBgGenresList() {
   const bgGenres = storage.get('bg-genres-list')
@@ -56,7 +57,7 @@ const MovieGenres = new Component({
         ? ''
         : this.state.genres.map((genre) => `
             <li class="genres-list__item">
-              <a class="genres-list__link" data-genre-id="${genre.id}" href="#/genres/${genre.id}/${genre.name}">
+              <a class="genres-list__link" data-genre-id="${genre.id}" href="#/genres/${genre.id}/${stringToSlug(genre.name)}">
                 ${genre.name}
               </a>
             </li>

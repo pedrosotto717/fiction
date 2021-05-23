@@ -1,0 +1,50 @@
+
+.genres-p .genres{
+  padding: .5rem;
+  margin-top: 1rem;
+  min-height: 100px;
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item{
+    margin-right: .75rem;
+    margin-bottom: .75rem;
+  }
+
+  &__link{
+    padding: .5rem 1rem;
+    border-bottom: 1px solid #c8c8c8;
+    background-color: #21242b;
+    color: #f0f0f0;
+    border-radius: 2px;
+    font-family: $font-second;
+    transition: all ease .3s;
+    transform: none;
+    
+    &:hover{
+      transform: translateY(2px);
+      border-bottom: 1px solid transparent;
+    }
+    
+    &.active{
+      background-color: darken($primary-color, 10);
+      font-family: $font-main;
+      border-bottom: 1px solid transparent;
+    }
+  }
+
+  @include mq_next(md){
+
+    &__link{
+      padding: .75rem 1.25rem;
+    }
+
+    &__item{
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

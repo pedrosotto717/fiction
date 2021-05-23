@@ -52,7 +52,7 @@ export default (() => {
       if (route.path === path) return true
       if (!route.path.includes(":")) return false
 
-      const exp = RegExp(route.path.replace(/(:[^\/]+)/ig, "([A-Za-z0-9]+)").replace(/\//ig, "\\/") + "$")
+      const exp = RegExp(route.path.replace(/(:[^\/]+)/ig, "([A-Za-z0-9-]+)").replace(/\//ig, "\\/") + "$")
 
       if (!exp.test(path)) return false
 

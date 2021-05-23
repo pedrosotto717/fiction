@@ -114,9 +114,18 @@ $bg-overlay: #000;
     transform: translate3d(0,0,0);
     opacity: 0;
 
+    .icon{
+      transition: transform .3s ease;
+    }
+
     &:hover{
       box-shadow: shadow(3px, transparent);
       transform: translate3d(0, 3px, 0);
+
+      .icon{
+        transition: transform .3s ease;
+        transform: translateX(8px);
+      }
     }
   }
 

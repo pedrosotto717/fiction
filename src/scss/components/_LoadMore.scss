@@ -1,0 +1,31 @@
+.load-more{
+  width: 100%;
+  padding: 2.75rem 0;
+  display: flex;
+  justify-content: center;
+
+  &__btn{
+    padding: 1rem 3.75rem;
+    line-height: 1rem;
+    background-color: darken($primary-color, 15);
+    color: #f0f0f0;
+    box-shadow: shadow-blur(12px, darken($primary-color, 30));
+    transition: all .3s ease;
+    transform: none;
+
+    &::after{
+      content: '\e80a';
+      @extend .icon-f;
+
+      font-size: 1.25rem;
+      line-height: 0;
+      transform: rotate(90deg);
+    }
+
+    &:hover{
+      transform: translateY(5px);
+      box-shadow: shadow-blur(5px, darken($primary-color, 31));
+    }
+  }
+
+}

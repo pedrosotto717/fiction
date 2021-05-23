@@ -13,5 +13,8 @@ export function stringToSlug(str) {
     .replace(/\s+/g, '-') // collapse whitespace and replace by -
     .replace(/-+/g, '-'); // collapse dashes
 
-  return str;
+  if (/[A-Za-z0-9]/.test(str.charAt(0)) === false)
+    str = str.substring(1)
+
+  return str.trim();
 }

@@ -8,6 +8,9 @@ import { getByGenre, getGenres } from '../services/API.js'
 import MoviesResults from '../components/MoviesResults.js'
 import LoadMore from '../components/LoadMore.js'
 import Loader from '../components/Loader.js';
+import { stringToSlug } from '../helpers/stringToSlug.js'
+import { putCommasToNumber } from '../helpers/putCommasToNumber_dan.js'
+import { clearSlug } from '../helpers/clearSlug.js'
 
 async function load() {
   if (!Router.is('Genres')) return false
@@ -58,17 +61,16 @@ const GenresPage = new Component({
   },
 
   template: function (props = {}) {
-    console.log(this.state)
     return (
-      `<main class="container genres-page">
+      `<main class="container genres-p movies-page">
         ${this.state.loading === true
         ? Loader()
         : `
-            <section class="genres-carousel">
-              <ul class="genres-carousel__list">
+            <section class="genres">
+              <ul class="genres__list">
                 ${this.state.genres.map(genre => `
-                  <li class="genres-carousel__item">
-                    <a href="#/genres/${genre.id}/${genre.name}" class="btn genres-carousel__link ${genre.id === this.state.data.genre_id ? 'active' : ''}">
+                  <li class="genres__item">
+                    <a href="#/genres/${genre.id}/${stringToSlug(genre.name)}" class="btn genres__link ${parseInt(genre.id) === parseInt(this.state.data.genre_id) ? 'active' : ''}">
                       ${genre.name}
                     </a>
                   </li>
@@ -76,12 +78,12 @@ const GenresPage = new Component({
               </ul>
             </section>
 
-            <header class="genres-page__header">
-              <h2 class="genres-page__title">Genre: ${this.state.data.title}</h2>
-              <p class="genres-page__total-results">${this.state.data.total_results}</p>
+            <header class="movies-page__header">
+              <h2 class="movies-page__title">Genre: ${clearSlug(this.state.data.title)}</h2>
+              <p class="movies-page__total-results">${putCommasToNumber(this.state.data.total_results)} results</p>
             </header>
 
-            <section class="genres-page__results">
+            <section class="movies-results">
               ${MoviesResults.render()}
             </section>
             ${LoadMore.render()}
@@ -96,6 +98,7 @@ const GenresPage = new Component({
   },
 
   componentWillUpdate: async function () {
+    window.scrollTo(0, 0)
     load.call(this)
   }
 })

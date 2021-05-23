@@ -8,6 +8,7 @@ const API_KEY = '423aa5b8f08553dd8806cf2e8025a1bd',
   GET_UPCOMING = `${API_URL}/upcoming.json`,
   GET_BY_GENRE = `${API_URL}/genre-animation.json`,
   GENRES = `${API_URL}/genres.json`,
+  SEARCH = `${API_URL}/search-1.json`,
   TMDB_LOGO = `${IMAGE_URL}/tmdb.svg`
 
 export default {
@@ -17,6 +18,7 @@ export default {
   GET_TRENDING,
   GET_UPCOMING,
   GENRES,
+  SEARCH,
   TMDB_LOGO,
   GET_BY_GENRE
 }

@@ -41,6 +41,7 @@ nav.nav-bar {
   }
   
   @include mq(sm){
+    // display: none;
     .fiction{
       margin-right: .75rem;
       font-size: 1.75rem;
@@ -66,6 +67,10 @@ nav.nav-bar {
     &:hover {
       transform: translate3d(0, 2px, 0);
       box-shadow: shadow(2px, transparent);
+    }
+
+    @include mq(500px){
+      display: none;
     }
 
     @include mq(md){

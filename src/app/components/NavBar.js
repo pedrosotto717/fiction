@@ -40,7 +40,7 @@ const Navbar = new Component({
       if (query == false) return false
       query = stringToSlug(query)
       console.log(query)
-      location.hash = `#/search`
+      location.hash = `#/search/${query}`
 
     }, '.form-search');
   }
