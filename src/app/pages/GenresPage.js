@@ -13,13 +13,13 @@ import { putCommasToNumber } from '../helpers/putCommasToNumber_dan.js'
 import { clearSlug } from '../helpers/clearSlug.js'
 
 async function load() {
+  this.setState({ loading: true })
   if (!Router.is('Genres')) return false
 
   const { args } = Router.dispatch()
   setTitle(`Fiction | ${args.name}`)
 
   if (typeof parseInt(args.id) !== "number" || args.name == false) return goToNotFound()
-
 
   const [movies = {}, genres = []] = await Promise.all([
     getByGenre(parseInt(args.id)),
@@ -30,6 +30,7 @@ async function load() {
 
   this.setState({
     genres,
+    loading: false,
     data: {
       title: args.name,
       genre_id: args.id,
@@ -44,14 +45,14 @@ async function load() {
     moviesProvider: (page) => getByGenre(parseInt(args.id), page)
   })
 
-  stopLoader()
+  setTimeout(stopLoader, 100)
 }
 
 const GenresPage = new Component({
   name: "GenresPage",
 
   state: {
-    loading: false,
+    loading: true,
     genres: [],
     data: {
       title: '',
@@ -93,32 +94,12 @@ const GenresPage = new Component({
   },
 
   componentDidMount: async function () {
-    window.scrollTo(0, 0)
     load.call(this)
   },
 
   componentWillUpdate: async function () {
-    window.scrollTo(0, 0)
     load.call(this)
   }
 })
 
 export default GenresPage
-
-
-// "#/genres/:id/:name"
-
-// carousel: action | animation | fiction | horror
-
-// Genre: action
-
-// MoviesResults.render()
-// card | card | card
-// LoadMore.render()
-
-// setMoviesContext({
-//     page: parseInt(movies.page),
-//     movieList: movies.results,
-//     total_pages: parseInt(movies.total_pages),
-//     moviesProvider: dataMap.handler
-//   })

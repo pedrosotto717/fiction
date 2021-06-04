@@ -4,6 +4,7 @@ $color-items: #070707;
 	--bg-genres: url('');
 	width: 100%;
 	min-height: 400px;
+	padding: .5rem;
 	overflow: hidden;
 	background: linear-gradient(-45deg,
 		$main-color,
@@ -26,8 +27,6 @@ $color-items: #070707;
 	background-size: 100%, cover, 100%;
 	background-repeat: no-repeat, no-repeat, no-repeat;
 
-
-
 	@include mq(md){
 		min-height: auto;
 	}
@@ -49,12 +48,14 @@ $color-items: #070707;
 		background-color: rgba($color-items, 0.65);
 		border-radius: 2px;
 		transition: transform 1.25s ease 0.25s,
+								opacity .85s ease .5s,
 								background-color .35s ease 0s,
 								box-shadow .3s linear;
 		box-shadow:  shadow-blur(12px, $color-items);
 
 		@include mq_next(1000px){
 			visibility: hidden;
+			opacity: 0;
 			@for $i from 1 to 20 {
 				&:nth-child(#{$i}){
 					transform: translate3d(-500px * ($i*0.25), 300px * ($i*0.25) , 125px * $i);
@@ -102,6 +103,7 @@ $color-items: #070707;
 	}
 
 	&.animate &__item{
+		opacity: 1;
 		transform: translate3d(0,0,0);
 		visibility: visible;
 	}

@@ -22,6 +22,7 @@
 @import 'components/MovieGenres';
 @import 'components/Footer';
 @import 'components/GlobalLoader';
+@import 'components/LocalLoader';
 @import 'components/InternalLoader';
 @import 'components/BannerThirdMovie';
 @import 'components/TmdbLogo';
@@ -31,6 +32,12 @@
 @import 'components/btnToTop';
 @import 'components/MoviesPage';
 @import 'components/LoadMore';
+@import 'components/ModalVideo';
+@import 'components/ModalImage';
+@import 'components/PosterContainer';
+@import 'components/MovieDetails';
+@import 'components/MediaNav';
+@import 'components/PersonPage';
 
 // -- view
 @import 'views/GenresPage';

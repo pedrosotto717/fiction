@@ -1,5 +1,5 @@
 import Component from '../prottoDom/Component.js'
-import { getPopular } from '../services/API.js'
+import { getPopular, getVideos } from '../services/API.js'
 import { cutText } from '../helpers/cutText_dan.js'
 import { makeBackGround } from '../helpers/makeBackGround.js'
 
@@ -8,6 +8,7 @@ const Header = new Component({
 
   state: {
     data: null,
+    videoKey: null,
     animate: true
   },
 
@@ -36,8 +37,7 @@ const Header = new Component({
               <p class="header__overview">
                 ${cutText(this.state.data.overview)}
               </p>
-              <button class="btn video header__video-btn" data-movie-id="${this.state.data.id}">
-                <span class="icon-play icon"></span>
+              <button class="btn video header__video-btn" data-video-key="${this.state.videoKey}">
                 Watch Trailer
               </button>
             </div>
@@ -47,17 +47,17 @@ const Header = new Component({
     )
   },
 
-  componentDidMount: function () {
-    getPopular()
-      .then(({ results = [] }) => {
-        return results[0] || null
-      })
-      .then(movie => {
-        if (movie !== null)
-          this.setState({
-            data: movie
-          })
-      })
+  componentDidMount: async function () {
+    const { results } = await getPopular()
+    const movie = results[0]
+
+    const video = await getVideos(movie.id) // le paso por parametro el id de la pelicula
+    const videoKey = video.videos.results.find(video => video.type === 'Trailer').key
+
+    this.setState({
+      data: movie,
+      videoKey
+    })
 
     document.addEventListener('routeChange', () => {
       this.setState({ animate: false })

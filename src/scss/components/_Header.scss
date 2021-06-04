@@ -102,12 +102,12 @@ header.header-container {
     transform: translate3d(0, 0,0);
     box-shadow: shadow-blur(6px, #000);
     background-color: rgba(#000, .85);
+    @extend .icon-play;
 
-    .icon{
-      display: inline-flex;
-      font-size: 1.35rem;
+    &::before{
+      @extend .icon-f;
+      font-size: 1.25rem;
       line-height: 0;
-      padding: 0;
       letter-spacing: 0.45rem;
     }
 
@@ -145,6 +145,8 @@ header.header-container {
   margin-bottom: 1rem;
 
   .icon{
+    font-size: 1.25rem;
+    line-height: 1;
   	color: rgba(gold, .9);
   }
 

@@ -1,5 +1,5 @@
 import Component from '../prottoDom/Component.js'
-import { getGenres, makeBackDrop, getPopular } from '../services/API.js'
+import { getGenres, getPopular } from '../services/API.js'
 import storage from '../helpers/storage.js'
 import { AppContext } from '../states/AppContext.js';
 import Router from '../prottoDom/Router.js';

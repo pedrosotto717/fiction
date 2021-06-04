@@ -30,8 +30,13 @@ export function makePoster(relativeUrl) {
   return provider.IMAGE_URL + relativeUrl
 }
 
-export function makeBackDrop(relativeUrl = '') {
+export function makeBackDrop(relativeUrl = '', size = 'original') {
   return `${provider.IMAGE_URL}${relativeUrl}`
+}
+
+export function placeHolderYoutube(key) {
+  return `${provider.IMAGE_URL}/7prYzufdIOy1KCTZKVWpjBFqqNr.jpg`
+  // return `https://img.youtube.com/vi/${key}/mqdefault.jpg`
 }
 
 export async function getGenres() {
@@ -43,6 +48,33 @@ export async function getGenres() {
         })
     }, 1000)
   })
+}
+
+export async function getMovieDetails(id) {
+  console.log(id)
+  if (id == 460465)
+    return await request(`${provider.API_URL}/460465.json`)
+  return await request(`${provider.GET_MOVIE_DETAILS}?${provider.MOVIE_APPEND_ALL}`)
+}
+
+export async function getSimilarMovies(id, page = 1) {
+  return await request(`${provider.SIMILAR_MOVIE}?page=${page}`)
+}
+
+export async function getPerson(id) {
+  return await request(`${provider.GET_PERSON}`)
+}
+
+export async function getImgPerson(id) {
+  return await request(`${provider.GET_IMG_PERSON}`)
+}
+
+export async function getCreditsPerson(id) {
+  return await request(`${provider.GET_CREDITS_PERSON}`)
+}
+
+export async function getVideos(id) {
+  return await request(`${provider.GET_VIDEO}?id=${id}`)
 }
 
 export function tmdbLogo() {

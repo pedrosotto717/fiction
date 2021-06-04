@@ -10,11 +10,12 @@
   }
 
   &__title{
-    color: #fff;
-    font-family: $font-main-b;
+    font-family: $font-main;
+    font-size: 2rem;
+    font-weight: normal;
+    display: inline-flex;
+    line-height: 1.25;
     text-transform: capitalize;
-    font-size: 1.75rem;
-    line-height: 1;
   }
 
   &__total-results{
@@ -76,5 +77,16 @@
 
   @include mq_next(1260px){
     --gap: .75rem;
+  }
+
+  &__title{
+    font-family: $font-main;
+    font-size: 2rem;
+    font-weight: normal;
+    display: inline-flex;
+    line-height: 1.25;
+    text-transform: capitalize;
+    padding: .5rem 1rem;
+    margin-bottom: 1rem;
   }
 }

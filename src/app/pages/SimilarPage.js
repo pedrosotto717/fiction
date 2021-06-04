@@ -1,42 +1,32 @@
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
 import { goToNotFound } from '../components/NotFound.js'
-import { mapExploreMovies } from '../mapExploreMovies.js'
 import { MoviesContext } from '../states/MoviesContext.js'
 import { stopLoader } from '../helpers/stopLoader.js'
 import { setTitle } from '../helpers/title.js'
-import { putCommasToNumber } from '../helpers/putCommasToNumber_dan.js'
+import { getByGenre, getSimilarMovies } from '../services/API.js'
 import MoviesResults from '../components/MoviesResults.js'
 import LoadMore from '../components/LoadMore.js'
 import Loader from '../components/Loader.js';
+import { putCommasToNumber } from '../helpers/putCommasToNumber_dan.js'
 import { clearSlug } from '../helpers/clearSlug.js'
 
-const verifyLoad = async function () {
-  const { args } = Router.dispatch()
-  setTitle(`Fiction | ${args.explore}`)
-
-  if (!mapExploreMovies.has(args.explore) && Router.is('Movies'))
-    return goToNotFound()
-
-  return args.explore
-}
-
 async function load() {
-  if (!Router.is('Movies')) return false
+  window.scrollTo(0, 0)
+  if (!Router.is('Similar')) return false
 
-  const keyMap = await verifyLoad.call(this)
-  this.setState({ loading: true });
+  const { args } = Router.dispatch()
+  setTitle(`Fiction | Similar`)
 
-  if (typeof keyMap !== "string") return false
+  if (typeof parseInt(args.id) !== "number" || args.name == false) return goToNotFound()
 
-  const dataMap = mapExploreMovies.get(keyMap),
-    movies = await dataMap.handler(),
-    [_, setMoviesContext] = MoviesContext.provider()
+  const movies = await getSimilarMovies(parseInt(args.id), 0)
+
+  const [_, setMoviesContext] = MoviesContext.provider()
 
   this.setState({
-    loading: false,
     data: {
-      title: dataMap.title,
+      title: args.name,
       total_results: movies.total_results
     }
   })
@@ -45,17 +35,17 @@ async function load() {
     page: parseInt(movies.page),
     movieList: movies.results,
     total_pages: parseInt(movies.total_pages),
-    moviesProvider: dataMap.handler
+    moviesProvider: (page) => getSimilarMovies(parseInt(args.id), page)
   })
 
-  stopLoader()
+  setTimeout(stopLoader, 100)
 }
 
-const MoviesPage = new Component({
-  name: "MoviesPage",
+const SimilarPage = new Component({
+  name: "SimilarPage",
 
   state: {
-    loading: true,
+    loading: false,
     data: {
       title: '',
       total_results: 0
@@ -64,18 +54,18 @@ const MoviesPage = new Component({
 
   template: function (props = {}) {
     return (
-      `<main class="container movies-p movies-page">
+      `<main class="container similar-p movies-page">
         ${this.state.loading === true
         ? Loader()
-        : `<header class="movies-page__header">
-              <h2 class="movies-page__title">${clearSlug(this.state.data.title)}</h2>
+        : `
+            <header class="movies-page__header">
+              <h2 class="movies-page__title">Similar To: ${clearSlug(this.state.data.title)}</h2>
               <p class="movies-page__total-results">${putCommasToNumber(this.state.data.total_results)} results</p>
             </header>
 
             <section class="movies-results">
               ${MoviesResults.render()}
             </section>
-
             ${LoadMore.render()}
           `}
       </main>`
@@ -91,4 +81,4 @@ const MoviesPage = new Component({
   }
 })
 
-export default MoviesPage
+export default SimilarPage

@@ -6,6 +6,7 @@ import CarouselUpcomingMovies from '../components/CarouselUpcomingMovies.js'
 import MovieGenres from '../components/MovieGenres.js'
 import bannerThirdMovie from '../components/BannerThirdMovie.js'
 import { setTitle } from '../helpers/title.js'
+import ModalVideo from '../components/ModalVideo.js'
 
 const HomePage = new Component({
   name: "Home",
@@ -19,6 +20,7 @@ const HomePage = new Component({
         ${CarouselTrendingMovies.render()}
         ${CarouselUpcomingMovies.render()}
         ${MovieGenres.render()}
+        ${ModalVideo.render()}
       </main>`
     )
   }

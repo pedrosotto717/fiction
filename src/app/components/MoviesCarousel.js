@@ -33,7 +33,6 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title, linkMore, custo
           ? ''
           : this.state.movies.map(movie => MovieCard({
             className: `movies-carousel__item`,
-            index: movie.id,
             data: movie
           })).join('')}
             </div>
@@ -74,7 +73,7 @@ function MoviesCarousel({ name, getMovies, timerCarousel, title, linkMore, custo
     },
 
     componentDidUpdate: function () {
-      if (Router.is() === null) return false
+      if (Router.is('Home') === null) return false
 
       if (this.state.carousel)
         this.state.carousel.updatingCarousel()

@@ -194,6 +194,7 @@ $bg-overlay: #000;
       width: 85%;
       padding-bottom: 5%;
       padding-left: 0;
+      z-index: 10;
     }
 
     &__year{

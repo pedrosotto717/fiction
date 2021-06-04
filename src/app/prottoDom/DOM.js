@@ -95,7 +95,6 @@ export default (function () {
         }
       }
     }
-
     if (events.includes(idEvent)) return false
 
     document.body.addEventListener(type, callback)

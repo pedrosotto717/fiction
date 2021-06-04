@@ -107,6 +107,10 @@ $padding-top: 10px;
 	@media screen and (max-height: 520px) and (max-width: 720px){
 		margin-top: -12vh;
 	}
+
+	@media screen and (min-height: 1300px){
+		margin-top: -200px;
+	}
 }
 
 .movies-carousel{

@@ -1,0 +1,59 @@
+
+.generic-poster__container{
+  flex: 0 0 calc(var(--movie-card-width) * 1.2);
+  width:  calc(var(--movie-card-width) * 1.2);  
+  height: calc(var(--movie-card-height) * 1.2);
+  display: flex;
+	align-items: center;
+  justify-content: center;
+	
+	margin-bottom: 0.75rem;
+	border-radius: 5px;
+  
+  user-select: none;
+  overflow: hidden;
+
+	background: linear-gradient(-45deg,
+	$main-color,
+	lighten($main-color, 10),
+	$main-color);
+	box-shadow: 0 20px 18px -8px #000;
+  
+  // for animation
+  opacity: 0;
+  transform: translateY(100%);
+
+
+  .poster-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid transparent;
+  }
+
+  @include mq(820px){
+    display: none;
+  }
+}
+
+.animate{
+  .generic-poster__container{
+    animation: bouncePoster .85s cubic-bezier(.68,-0.55,.27,1.55) .15s forwards;
+
+    @keyframes bouncePoster {
+      0%{
+        opacity: 0;
+        transform: translateY(75%);
+      }
+      
+      100%{
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

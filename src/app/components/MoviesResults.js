@@ -13,7 +13,7 @@ const MoviesResults = new Component({
         ${this.context.movieList.length > 0
         ? this.context.movieList.map(movie =>
           `<li class="movies-results__item">
-            ${MoviesCard({ className: "movies-results__card", data: movie, index: movie.id })}
+            ${MoviesCard({ className: "movies-results__card", data: movie })}
           </li>`
         ).join('')
         : ''}

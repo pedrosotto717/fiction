@@ -1,6 +1,5 @@
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
-import { goToNotFound } from '../components/NotFound.js'
 import { MoviesContext } from '../states/MoviesContext.js'
 import { stopLoader } from '../helpers/stopLoader.js'
 import { setTitle } from '../helpers/title.js'
@@ -14,11 +13,8 @@ async function load() {
   if (!Router.is('Search')) return false
   setTitle(`Fiction | Search`)
 
-  const { args } = Router.dispatch()
-
-  console.log(args.keyword)
-
-  const [_, setMoviesContext] = MoviesContext.provider()
+  const { args } = Router.dispatch(),
+    [_, setMoviesContext] = MoviesContext.provider()
 
   const movies = await search(args.keyword)
 
@@ -71,12 +67,10 @@ const SearchPage = new Component({
   },
 
   componentDidMount: async function () {
-    window.scrollTo(0, 0)
     load.call(this)
   },
 
   componentWillUpdate: async function () {
-    window.scrollTo(0, 0)
     load.call(this)
   }
 })

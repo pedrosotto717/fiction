@@ -7,9 +7,16 @@ const API_KEY = '423aa5b8f08553dd8806cf2e8025a1bd',
   GET_TRENDING = `${API_URL}/trendingLastDay.json`,
   GET_UPCOMING = `${API_URL}/upcoming.json`,
   GET_BY_GENRE = `${API_URL}/genre-animation.json`,
+  GET_MOVIE_DETAILS = `${API_URL}/movie-details.json`,
   GENRES = `${API_URL}/genres.json`,
   SEARCH = `${API_URL}/search-1.json`,
-  TMDB_LOGO = `${IMAGE_URL}/tmdb.svg`
+  SIMILAR_MOVIE = `${API_URL}/similar-movie-details.json`,
+  TMDB_LOGO = `${IMAGE_URL}/tmdb.svg`,
+  MOVIE_APPEND_ALL = '?append_to_response=images,videos,casts',
+  GET_VIDEO = `${API_URL}/video.json`,
+  GET_PERSON = `${API_URL}/1663195.json`,// https://api.themoviedb.org/3/person/${id}
+  GET_IMG_PERSON = `${API_URL}/1663195_img.json`,// https://api.themoviedb.org/3/person/${id}/images
+  GET_CREDITS_PERSON = `${API_URL}/1663195_credits.json` // https://api.themoviedb.org/3/person/${id}/movie_credits?sort_by=popularity.desc
 
 export default {
   API_URL,
@@ -17,8 +24,15 @@ export default {
   GET_POPULAR,
   GET_TRENDING,
   GET_UPCOMING,
+  GET_MOVIE_DETAILS,
+  MOVIE_APPEND_ALL,
   GENRES,
   SEARCH,
   TMDB_LOGO,
-  GET_BY_GENRE
+  SIMILAR_MOVIE,
+  GET_BY_GENRE,
+  GET_VIDEO,
+  GET_PERSON,
+  GET_IMG_PERSON,
+  GET_CREDITS_PERSON
 }
