@@ -51,7 +51,6 @@ export async function getGenres() {
 }
 
 export async function getMovieDetails(id) {
-  console.log(id)
   if (id == 460465)
     return await request(`${provider.API_URL}/460465.json`)
   return await request(`${provider.GET_MOVIE_DETAILS}?${provider.MOVIE_APPEND_ALL}`)

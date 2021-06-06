@@ -35,7 +35,6 @@ export default (() => {
   const resolve = (path) => {
     currentRoute = matchPath(path)
 
-    console.log('RouteChange')
     document.dispatchEvent(routeChangeEvent)
 
     if (currentRoute === null) { // return

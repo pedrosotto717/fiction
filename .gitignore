@@ -3,6 +3,7 @@
 /src/local/
 /src/assets/
 /src/themoviedb/
+/dist/themoviedb/
 /src/css
 /src/webfonts
 .env

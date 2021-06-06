@@ -10,6 +10,7 @@ import MoviesPage from './app/pages/MoviesPage.js'
 import { NotFound } from './app/components/NotFound.js'
 import SimilarPage from './app/pages/SimilarPage.js'
 import PersonPage from './app/pages/PersonPage.js'
+import './scss/main.scss'
 
 Router.load([
   { name: 'Home', path: '/', handler: HomePage },

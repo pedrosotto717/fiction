@@ -39,7 +39,6 @@ const Navbar = new Component({
       let query = ev.target.querySelector('input[type=search]').value
       if (query == false) return false
       query = stringToSlug(query)
-      console.log(query)
       location.hash = `#/search/${query}`
 
     }, '.form-search');

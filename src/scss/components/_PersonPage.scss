@@ -12,6 +12,7 @@
 	lighten($main-color, 10),
 	$main-color);
 	box-shadow: 0 10px 18px -8px darken($main-color, 5);
+  overflow: hidden;
 
   @include mq_next(820px){
     padding: 2rem;

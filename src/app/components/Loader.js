@@ -1,8 +1,9 @@
+import spin from "../../assets/images/tail-spin.svg";
 
 export default function Loader() {
   return (
     `<div class="local-loader">
-      <img src="assets/images/tail-spin.svg" width="75" alt="Loading">
+      <img src=${spin} width="75" alt="Loading">
     </div>`
   )
 }

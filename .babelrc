@@ -1,0 +1,28 @@
+{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"targets": {
+					"browsers": [
+						"> 2%",
+						"last 5 versions",
+						"not dead",
+						"not ie 11",
+						"not ie 10",
+						"not op_mini all"
+					]
+				},
+				"debug": true
+			}
+		]
+	],
+	"plugins": [
+		[
+			"@babel/transform-runtime"
+		],
+		[
+			"@babel/plugin-proposal-class-properties"
+		]
+	]
+}

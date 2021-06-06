@@ -40,9 +40,6 @@ const ModalImage = new Component({
         const _target = ev.target.matches('.view-image') ? ev.target : ev.target.closest('.view-image')
         const imagePath = _target.dataset.imagepath
 
-        console.log(imagePath)
-
-
         this.setState({ imagePath })
         $modal.classList.add('is-show')
       }
