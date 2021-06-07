@@ -1,5 +1,0 @@
-@mixin main-gradient($color, $rotation: 90deg){
-	$lg: $rotation, darken($color, 5%), lighten($color, 5%), darken($color, 5%);
-	background: -webkit-linear-gradient($lg);
-	background: linear-gradient($lg);
-}

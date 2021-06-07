@@ -1,4 +1,3 @@
-
 .generic-poster__container{
   flex: 0 0 calc(var(--movie-card-width) * 1.2);
   width:  calc(var(--movie-card-width) * 1.2);  
@@ -19,7 +18,6 @@
 	$main-color);
 	box-shadow: 0 20px 18px -8px #000;
   
-  // for animation
   opacity: 0;
   transform: translateY(100%);
 

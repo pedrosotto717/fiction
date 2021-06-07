@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "Fiction web-movie",
   "version": "1.0.0",
-  "description": "",
+  "description": "SPA make with vanilla JavaScript and Sass",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",

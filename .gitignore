@@ -1,7 +1,6 @@
 /node_modules
 /vendor
 /src/local/
-/src/assets/
 /src/themoviedb/
 /dist/themoviedb/
 /src/css

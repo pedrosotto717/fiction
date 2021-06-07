@@ -41,8 +41,8 @@ nav.nav-bar {
   }
   
   @include mq(sm){
-    // display: none;
     .fiction{
+      margin-bottom: 0;
       margin-right: .75rem;
       font-size: 1.75rem;
     }

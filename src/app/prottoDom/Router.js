@@ -37,7 +37,7 @@ export default (() => {
 
     document.dispatchEvent(routeChangeEvent)
 
-    if (currentRoute === null) { // return
+    if (currentRoute === null) {
       return subscriber({ args: {}, handler: currentRoute }) || null
     }
 

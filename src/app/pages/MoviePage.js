@@ -1,6 +1,5 @@
 import Component from '../prottoDom/Component.js'
 import Router from '../prottoDom/Router.js'
-import { AppContext } from '../states/AppContext.js'
 import { getMovieDetails, getSimilarMovies, makePoster } from '../services/API.js'
 import { putCommasToNumber } from "../helpers/putCommasToNumber_dan.js";
 import { stringToSlug } from '../helpers/stringToSlug.js';

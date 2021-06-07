@@ -108,7 +108,7 @@ const MovieGenres = new Component({
 
 
       setBackgroundGenres.call(this)
-    } // end try_catch_finally
+    }
   },
 
   componentDidUpdate: async function () {

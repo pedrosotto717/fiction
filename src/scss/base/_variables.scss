@@ -1,4 +1,4 @@
-/* *************** Custom Properties *************** */
+// *************** Custom Properties *************** 
 // globals
 $max-width: 1800px;
 $font-size: 16px;
@@ -23,10 +23,6 @@ $fonts-path: "../assets/fonts";
   --movie-card-width: 230px;
   --movie-card-height: 345px;
 }
-
-
-// $icon-w: 20px;
-// $icon-h: 20px;
 
 $breakpoints: (
     xs: 30em,   /* 480px  .-> 16px */
