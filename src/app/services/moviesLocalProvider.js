@@ -16,8 +16,8 @@ const API_KEY = '423aa5b8f08553dd8806cf2e8025a1bd',
   GET_VIDEO = `${API_URL}/video.json`,
   GET_PERSON = `${API_URL}/1663195.json`,// https://api.themoviedb.org/3/person/${id}
   GET_IMG_PERSON = `${API_URL}/1663195_img.json`,// https://api.themoviedb.org/3/person/${id}/images
-  GET_CREDITS_PERSON = `${API_URL}/1663195_credits.json` // https://api.themoviedb.org/3/person/${id}/movie_credits?sort_by=popularity.desc
-
+  GET_CREDITS_PERSON = `${API_URL}/1663195_credits.json`, // https://api.themoviedb.org/3/person/${id}/movie_credits?sort_by=popularity.desc
+  API_KEY = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MjNhYTViOGYwODU1M2RkODgwNmNmMmU4MDI1YTFiZCIsInN1YiI6IjYwM2QwODgwOGQxYjhlMDA1MThkYzJlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TqldesRioChWSEpyncwhnEISn0SIy7nf2bTXbJaTYlE`
 export default {
   API_URL,
   IMAGE_URL,

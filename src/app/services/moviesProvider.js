@@ -1,16 +1,35 @@
-
 const API_URL = 'https://api.themoviedb.org/3',
-  IMAGE_URL = `http://image.tmdb.org/t/p`,
-  GET_POPULAR = `${API_URL}/popular`,
-  GET_TRENDING = `${API_URL}/popular.json`,
-  SEARCH = `${API_URL}/search/movie`,
-  TMDB_LOGO = `https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg`
+    IMAGE_URL = `https://image.tmdb.org/t/p/`,
+    API_KEY = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MjNhYTViOGYwODU1M2RkODgwNmNmMmU4MDI1YTFiZCIsInN1YiI6IjYwM2QwODgwOGQxYjhlMDA1MThkYzJlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TqldesRioChWSEpyncwhnEISn0SIy7nf2bTXbJaTYlE`,
+    GET_POPULAR = `${API_URL}/movie/popular`,
+    GET_TRENDING = `${API_URL}/trending/movie/day`,
+    GET_UPCOMING = `${API_URL}/movie/upcoming`,
+    GET_BY_GENRE = `${API_URL}/discover/movie?sort_by=popularity.desc&with_genres=`,
+    GET_MOVIE_DETAILS = `${API_URL}/movie/`,
+    MOVIE_APPEND_ALL = '?append_to_response=images,videos,casts',
+    GET_VIDEO = `${API_URL}/movie/`,
+    GENRES = `${API_URL}/genre/movie/list`,
+    SIMILAR_MOVIE = `${API_URL}/movie/`,
+    GET_PERSON = `${API_URL}/person`,
+    GET_CREDITS_PERSON = `/movie_credits?sort_by=popularity.desc`,
+    TMDB_LOGO = `https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg`,
+    SEARCH = `${API_URL}/search/movie`
 
 export default {
-  API_URL,
-  IMAGE_URL,
-  GET_POPULAR,
-  GET_TRENDING,
-  SEARCH,
-  TMDB_LOGO
+    API_URL,
+    IMAGE_URL,
+    GET_POPULAR,
+    GET_TRENDING,
+    GET_UPCOMING,
+    GET_MOVIE_DETAILS,
+    MOVIE_APPEND_ALL,
+    GENRES,
+    SEARCH,
+    TMDB_LOGO,
+    SIMILAR_MOVIE,
+    GET_BY_GENRE,
+    GET_VIDEO,
+    GET_PERSON,
+    GET_CREDITS_PERSON,
+    API_KEY
 }

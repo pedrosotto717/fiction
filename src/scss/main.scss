@@ -1,6 +1,5 @@
 // -- Utilities
 @import 'utilities/media_queries';
-@import 'utilities/linear_gradient';
 @import 'utilities/shadow';
 
 // -- Base
@@ -13,7 +12,6 @@
 @import 'vendor/fontello';
 
 // -- Components
-@import 'components/App';
 @import 'components/btn';
 @import 'components/NavBar';
 @import 'components/Header';
@@ -41,5 +39,4 @@
 // -- view
 @import 'views/GenresPage';
 
-// -- Layout
-@import 'layout/all';
+@import 'hacks/all';

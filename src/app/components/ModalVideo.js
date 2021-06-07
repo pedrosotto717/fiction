@@ -9,8 +9,7 @@ const ModalVideo = new Component({
   },
 
   template: function (props = {}) {
-    // const srcVideo = "https://www.youtube.com/embed/${this.videoKey}?rel=0&amp;showinfo=0&amp;autoplay=1"
-    const srcVideo = `/themoviedb/video/${this.state.videoKey}.mp4`
+    const srcVideo = `https://www.youtube.com/embed/${this.state.videoKey}?rel=0&amp;showinfo=0&amp;autoplay=1`
     return (
       `<div class="modal-video">
           ${this.state.play
@@ -42,7 +41,6 @@ const ModalVideo = new Component({
     })
 
     document.addEventListener('click', ev => {
-      // console.log("Diste Click")
       if (ev.target.matches('.video') || ev.target.matches('.video *')) {
         const $modal = document.querySelector('.modal-video')
 
@@ -50,8 +48,6 @@ const ModalVideo = new Component({
 
         const _target = ev.target.matches('.video') ? ev.target : ev.target.closest('.video')
         const videoKey = _target.dataset.videoKey
-        // falta cargar el key del video en el iframe
-        // data-video-key
 
         this.setState({ play: true, videoKey })
         console.log(this.state)

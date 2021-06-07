@@ -52,7 +52,7 @@ const Header = new Component({
     const movie = results[0]
 
     const video = await getVideos(movie.id) // le paso por parametro el id de la pelicula
-    const videoKey = video.videos.results.find(video => video.type === 'Trailer').key
+    const videoKey = video.results.find(video => video.type === 'Trailer').key
 
     this.setState({
       data: movie,

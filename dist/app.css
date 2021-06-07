@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /* ------------------ Media Query ----------------- */
-/* *************** Custom Properties *************** */
 :root {
   --movie-card-width: 230px;
   --movie-card-height: 345px;
@@ -309,26 +308,6 @@ a:active {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*.icon-star:before { content: '\e800'; }
-.icon-star-empty:before { content: '\e801'; }
-.icon-search-2:before { content: '\e803'; }
-.icon-star-empty-1:before { content: '\e804'; }
-.icon-video:before { content: '\e805'; }
-.icon-menu:before { content: '\e806'; }
-.icon-plus-1:before { content: '\e807'; }
-.icon-right-open-big:before { content: '\e808'; }
-.icon-left-open-big:before { content: '\e809'; }
-.icon-right-open:before { content: '\e80a'; }
-.icon-left-open:before { content: '\e80b'; }
-.icon-up-thin:before { content: '\e80c'; }
-.icon-up-1:before { content: '\e80d'; }
-.icon-github-circled:before { content: '\e80e'; }
-.icon-home:before { content: '\e80f'; }
-.icon-search-1:before { content: '\e810'; }
-.icon-cancel:before { content: '\e811'; }
-.icon-star-1:before { content: '\e812'; }
-.icon-play:before { content: '\e813'; }
-*/
 .icon-star:before {
   content: "";
 }
@@ -499,6 +478,7 @@ nav.nav-bar {
   font-size: 2.25rem;
   color: #17b7da;
   text-transform: uppercase;
+  margin-bottom: 0;
   margin-right: 2rem;
 }
 @media screen and (max-width: 37.5em) {

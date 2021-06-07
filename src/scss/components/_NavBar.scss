@@ -37,12 +37,12 @@ nav.nav-bar {
     font-size: 2.25rem;
     color: $primary-color;
     text-transform: uppercase;
+    margin-bottom: 0;
     margin-right: 2rem;
   }
   
   @include mq(sm){
     .fiction{
-      margin-bottom: 0;
       margin-right: .75rem;
       font-size: 1.75rem;
     }
