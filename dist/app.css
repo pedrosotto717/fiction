@@ -1669,6 +1669,9 @@ h1 {
   box-shadow: 0 12px 8.532px -6.96px #084350;
   transition: all 0.3s ease;
   transform: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .load-more__btn::after {
   content: "";
@@ -1697,19 +1700,20 @@ h1 {
   background-color: #111111;
   visibility: hidden;
   display: none;
+  padding: 2rem;
 }
 .modal-video.is-show {
   display: flex;
   visibility: visible;
 }
 .modal-video .video-container {
-  width: 86%;
+  width: 71.22222%;
   height: 0;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 48.5%;
+  padding-bottom: 40%;
 }
 .modal-video__iframe {
   top: 0;

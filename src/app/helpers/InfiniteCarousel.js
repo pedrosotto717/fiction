@@ -1,4 +1,3 @@
-import DOM from '../prottoDom/DOM.js'
 import { swipeLeft, swipeRight } from './_touch.js'
 
 class InfiniteCarousel {
@@ -14,8 +13,16 @@ class InfiniteCarousel {
   constructor(settings) {
     this.settings = settings
     this.timeInterval = settings.timeInterval || false
-    DOM.addEventListener('click', () => this.goLeft(), settings.prevSelector)
-    DOM.addEventListener('click', () => this.goRight(), settings.nextSelector)
+
+    document.addEventListener('click', ev => {
+      if(ev.target.matches(settings.prevSelector) || ev.target.matches(`${settings.prevSelector} *`))
+        this.goLeft()
+    });
+    
+    document.addEventListener('click', ev => {
+      if(ev.target.matches(settings.nextSelector) || ev.target.matches(`${settings.nextSelector} *`))
+        this.goRight()
+    })
 
 
     swipeLeft(() => {

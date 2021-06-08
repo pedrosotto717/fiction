@@ -50,7 +50,6 @@ const ModalVideo = new Component({
         const videoKey = _target.dataset.videoKey
 
         this.setState({ play: true, videoKey })
-        console.log(this.state)
         $modal.classList.add('is-show')
       }
     })

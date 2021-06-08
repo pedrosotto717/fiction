@@ -14,7 +14,7 @@ export async function getUpcoming(page = 1) {
 }
 
 export async function getByGenre(id, page = 1) {
-  return await request(`${provider.GET_BY_GENRE}${id}?page=${page}`)
+  return await request(`${provider.GET_BY_GENRE}${id}&page=${page}`)
 }
 
 export async function getMovieDetails(id) {
@@ -40,10 +40,8 @@ export function placeHolderYoutube(key) {
 }
 
 export async function getGenres() {
-  return await request(`${provider.GENRES}`, 'genres')
-    .then(data => {
-      response(data.genres)
-    })
+  const data = await request(`${provider.GENRES}`, 'genres')
+  return data.genres
 }
 
 export async function getSimilarMovies(id, page = 1) {

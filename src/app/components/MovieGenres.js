@@ -1,6 +1,5 @@
 import Component from '../prottoDom/Component.js'
 import { getGenres, getPopular } from '../services/API.js'
-import storage from '../helpers/storage.js'
 import { AppContext } from '../states/AppContext.js';
 import Router from '../prottoDom/Router.js';
 import { setVarCss } from '../helpers/setVarCss.js';
@@ -8,13 +7,6 @@ import { makeBackGround } from '../helpers/makeBackGround.js';
 import { stringToSlug } from '../helpers/stringToSlug.js';
 
 async function setBgGenresList() {
-  const bgGenres = storage.get('bg-genres-list')
-
-  if (bgGenres) {
-    this.setState({ bgList: bgGenres })
-    return false
-  }
-
   const bgList = {},
     { results = [] } = await getPopular()
 
@@ -24,7 +16,6 @@ async function setBgGenresList() {
   });
 
   this.setState({ bgList })
-  storage.set('bg-genres-list', bgList)
 }
 
 async function setBackgroundGenres() {
@@ -72,6 +63,7 @@ const MovieGenres = new Component({
       const _id = parseInt(ev.target.dataset.genreId)
       if (this.state.bgList[_id] !== '')
         setVarCss('.movie-genres-container', '--bg-genres', makeBackGround(this.state.bgList[_id]))
+      
     }, '.genres-list__link');
   },
 

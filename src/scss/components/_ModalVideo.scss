@@ -14,6 +14,7 @@
   background-color: rgba(#111, 1);
   visibility: hidden;
   display: none;
+  padding: 2rem;
 
   &.is-show{
     display: flex;
@@ -21,13 +22,13 @@
   }
 
   .video-container{
-    width: 86%;
+    width: 71.22222%;
     height: 0;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 48.5%;
+    padding-bottom: 40%;
   }
 
   &__iframe{

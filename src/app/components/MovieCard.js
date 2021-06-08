@@ -3,7 +3,7 @@ import { cutText } from '../helpers/cutText_dan.js'
 
 export default function MoviesCard({ className = '', data }) {
   let { release_date } = data
-  release_date = release_date.split('-')[0]
+  release_date = release_date && release_date.split('-')[0] || 0
   return (
     `<div class="${className} movie-card">
       <a class="movie-card__link" href="#/movie/${data.id}">
