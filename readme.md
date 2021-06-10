@@ -1,3 +1,7 @@
+
+<script>
+    console.log(location.href)
+</script>
 # Fiction web-movie
 
 _SPA make in vanilla JavaScript. Consume the Movie API (The Movie Database), TMDb._
