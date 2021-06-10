@@ -1,6 +1,7 @@
 
 <script>
-    console.log(location.href)
+    if(location.href === 'https://pedrosotto717.github.io/fiction/')
+        location.assign('https://pedrosotto717.github.io/fiction/dist')
 </script>
 # Fiction web-movie
 
