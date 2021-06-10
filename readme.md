@@ -14,7 +14,7 @@ npm start
 
 ## Demo
 
-[Fiction movie-web](https://pedrosotto717.github.io/fiction/dist/)
+[Fiction https://pedrosotto717.github.io/fiction/dist/](https://pedrosotto717.github.io/fiction/dist/)
 
 
 ---
