@@ -4,9 +4,9 @@
   height: $nav-height;
   z-index: 20;
   top: 0;
+  left: 0;
+  right: 0;
   position: fixed;
-  position: -webkit-sticky;
-  position: sticky;
   background-color: $bg-color-two;
   box-shadow: 0 4px 8px -6px #050508;
 }

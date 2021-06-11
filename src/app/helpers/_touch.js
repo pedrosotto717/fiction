@@ -12,7 +12,7 @@ export function swipeRight(callback, element) {
   }, `${element}`)
 
   DOM.addEventListener('touchend', ev => {
-    if (rOldPosX > rCurrentPosX * 1.5)
+    if (rOldPosX > rCurrentPosX * 1.6)
       callback()
   }, `${element}`)
 }
@@ -29,7 +29,7 @@ export function swipeLeft(callback, element) {
   }, `${element}`)
 
   DOM.addEventListener('touchend', ev => {
-    if (lCurrentPosX * 0.55 > lOldPosX)
+    if (lCurrentPosX * 0.4 > lOldPosX)
       callback()
   }, `${element}`)
 }
