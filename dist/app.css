@@ -444,9 +444,9 @@ a:active {
   height: 70px;
   z-index: 20;
   top: 0;
+  left: 0;
+  right: 0;
   position: fixed;
-  position: -webkit-sticky;
-  position: sticky;
   background-color: #1c2026;
   box-shadow: 0 4px 8px -6px #050508;
 }
@@ -1732,6 +1732,12 @@ h1 {
   right: 0;
   background: transparent;
 }
+@media screen and (max-width: 45em) {
+  .modal-video .video-container {
+    width: 96%;
+    padding-bottom: 52%;
+  }
+}
 
 .modal-image {
   width: 100vw;
@@ -2420,6 +2426,7 @@ body {
 
 #app {
   min-height: 80vh;
+  padding-top: 65px;
 }
 
 a {

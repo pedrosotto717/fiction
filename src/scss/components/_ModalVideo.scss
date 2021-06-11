@@ -49,4 +49,11 @@
     right: 0;
     background: transparent;
   }
+
+  @include mq(md){
+    .video-container{
+      width: 96%;
+      padding-bottom: 52%;
+    }
+  }
 }
