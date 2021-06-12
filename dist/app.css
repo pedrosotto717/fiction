@@ -2223,18 +2223,19 @@ h1 {
   margin-bottom: -0.5rem;
 }
 .media-nav__content-item .cast-card {
+  max-width: calc(var(--movie-card-width) * 1.1);
   cursor: pointer;
   transition: all ease 0.4s;
 }
 
 .person-header {
   width: 100%;
-  min-height: 500px;
+  min-height: 450px;
 }
 
 .person-header__container {
   padding: 0.25rem;
-  padding-bottom: 5rem;
+  padding-bottom: 4.5rem;
   display: flex;
   background: linear-gradient(-45deg, #14161d, #292d3b, #14161d);
   box-shadow: 0 10px 18px -8px #0a0b0e;
@@ -2318,6 +2319,7 @@ h1 {
 .photos__list {
   display: flex;
   flex-wrap: nowrap;
+  padding: 0.5rem;
 }
 .photos__list .cast-card {
   margin-bottom: 1rem;

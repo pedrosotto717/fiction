@@ -273,6 +273,7 @@
   }
 
   .cast-card{
+    max-width: calc(var(--movie-card-width) * 1.1);
     cursor: pointer;
     transition: all ease .4s;
     @extend .movie-card;

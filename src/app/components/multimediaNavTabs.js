@@ -8,18 +8,25 @@ const multimediaNavTabs = new Component({
 
   template: function (props) {
 
+    if(props.videos.length === 0 
+      && props.cast.length === 0 
+      && props.images.length === 0 )
+      return ''
+
+
     return (
       `<section class="media-nav container">
         <div class="media-nav__tabs">
           <button class="btn-video media-nav__tabs-item is-active" data-idnav="nav-videos">${props.videos.length} VIDEOS</button>
-          <button class="btn-images media-nav__tabs-item" data-idnav="nav-images">${props.images.length}  PICTURES</button>
-          <button class="btn-cast media-nav__tabs-item" data-idnav="nav-cast">CASTING</button>
+          ${ props.images.length > 0 ? `<button class="btn-images media-nav__tabs-item" data-idnav="nav-images">${props.images.length}  PICTURES</button>`  : ''}
+          ${ props.cast.length > 0 ? `<button class="btn-cast media-nav__tabs-item" data-idnav="nav-cast">CASTING</button>`  : ''}
         </div>
-
         <div class="media-nav__content">
           <div id="nav-videos" class="media-nav__content-item is-show">
             <ul class="video-list">
-              ${props.videos.map(video => `
+              ${
+                props.videos.length > 0
+                ? props.videos.map(video => `
                 <li class="video-list__item">
                   <button class="video video-list__btn" data-video-key="${video.key}">
                     <div class="video-list__img">
@@ -29,7 +36,10 @@ const multimediaNavTabs = new Component({
                     <span class="video-list__type">${video.type}</span>
                   </button>
                 </li>
-              `).join('')}
+              `).join('')
+              : 
+            `This Movie Has No Trailers`
+            }
             </ul>
           </div>
           
@@ -44,9 +54,12 @@ const multimediaNavTabs = new Component({
           </div>
           
           <div id="nav-cast" class="media-nav__content-item">
-            ${CarouselCasting.render({
-        casts: props.cast
-      })}
+            ${props.cast.length > 0
+              ?
+              CarouselCasting.render({
+                casts: props.cast
+              }) : '' }
+              
           </div>
         </div>
       </section>`

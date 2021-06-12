@@ -1,11 +1,11 @@
 .person-header{
   width: 100%;
-  min-height: 500px;
+  min-height: 450px;
 }
 
 .person-header__container {
   padding: .25rem;
-  padding-bottom: 5rem;
+  padding-bottom: 4.5rem;
   display: flex;
   background: linear-gradient(-45deg,
 	$main-color,
@@ -118,6 +118,7 @@
   &__list{
     display: flex;
     flex-wrap: nowrap;
+    padding: .5rem;
     
     .cast-card{
       @extend .movie-card;

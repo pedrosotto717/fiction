@@ -106,11 +106,12 @@ const MoviePage = new Component({
         cast: castList
       })}
 
-        ${SimilarMovies.render({
+        ${this.state.recommended.length > 0
+          ? SimilarMovies.render({
         id: this.state.movieDetails.id,
         name: stringToSlug(this.state.movieDetails.title),
         similarMoviesList: this.state.recommended
-      })}
+      }) : ''}
         ${ModalVideo.render()}
         ${ModalImage.render()}
       </main>`
