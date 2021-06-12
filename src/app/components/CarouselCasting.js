@@ -16,10 +16,14 @@ const CarouselCasting = new Component({
     return (
       `<section class="carousel">
           <div class="movies-carousel-container">
-            <button class="controls-carousel control-carousel-prev">
-              <span class="icon-left-open-big icon"></span>
-            </button>
 
+            ${props.casts.length > 1
+            ? `<button class="controls-carousel control-carousel-prev">
+                <span class="icon-left-open-big icon"></span>
+              </button>`
+              : ''
+            }
+            
             <div class="movies-carousel">
               ${props.casts.map(cast => `
                 <div class="cast-card">
@@ -34,9 +38,13 @@ const CarouselCasting = new Component({
               `).join('')}
             </div>
 
-            <button class="controls-carousel control-carousel-next">
-              <span class="icon-right-open-big icon"></span>
-            </button>
+            ${props.casts.length > 1
+              ? ` <button class="controls-carousel control-carousel-next">
+                    <span class="icon-right-open-big icon"></span>
+                  </button>`
+                : ''
+              }
+           
           </div>
         </section>`
     )
