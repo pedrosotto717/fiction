@@ -183,7 +183,7 @@ $bg-overlay: #000;
   @include mq(md){
     --width-right: 100%;
     --overlay-direction: 0deg;
-    --move-x: 0;
+    --move-x: center;
     --overlay-size: 20%;
     --font-size-year: 10rem;
 
